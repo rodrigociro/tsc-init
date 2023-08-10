@@ -39,8 +39,8 @@ export class DeployAction extends BaseAction {
         }
         if(request){
             //accion en la maquina
-            await this.execCommand(`{echo ${request.parametro_recibido1}`, []);
-            let greenActiveStatus = this._shellOutput.trim();
+            await this.execCommand(`{echo "${request.parametro_recibido1}"`, []);
+            //let greenActiveStatus = this._shellOutput.trim();
             this.resetOutputs();
         }else {
             setFailed("PARAMETRO 1? " + request);
