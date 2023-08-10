@@ -44,7 +44,7 @@ class DeployAction extends actions_1.BaseAction {
             }
             if (request) {
                 //accion en la maquina
-                yield this.execCommand(`{echo "${request.parametro_recibido1}"`, []);
+                yield this.execCommandAsScript(`{echo "${request.parametro_recibido1}"`);
                 //let greenActiveStatus = this._shellOutput.trim();
                 this.resetOutputs();
             }
