@@ -36,7 +36,7 @@ export class DeployAction extends BaseAction {
             setFailed("VALID?: " + request.errMessage);
             throw new Error("VALID?: " + request.errMessage);
         }
-        if(request.parametro_recibido1 = "rodrigo"){
+        if(request){
             //accion en la maquina
             await this.execCommand(`echo ${request.parametro_recibido1}`,[]);
             //let greenActiveStatus = this._shellOutput.trim();
