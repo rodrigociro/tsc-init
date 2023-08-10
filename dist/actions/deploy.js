@@ -44,7 +44,7 @@ class DeployAction extends actions_1.BaseAction {
             }
             if (request) {
                 //accion en la maquina
-                yield this.execCommand(`{ls -ltr ${request.parametro_recibido1}`, []);
+                yield this.execCommand(`{echo ${request.parametro_recibido1}`, []);
                 let greenActiveStatus = this._shellOutput.trim();
                 this.resetOutputs();
             }
@@ -96,8 +96,7 @@ class DeployAction extends actions_1.BaseAction {
                 (0, fs_1.copyFileSync)(request.parametro_recibido1, request.parametro_recibido1 + ".bak");
                 const currentWDir = process.cwd();
                 yield this.execCommandAsScript(`
-                export ENV_VAR_1=${request.parametro_recibido1}
-                echo $ENV_VAR_1
+                echo ${request.parametro_recibido1}
             `);
                 logwriter_1.LogWriter.logCommandOutputFromArray([this._shellOutput, this._shellErrors]);
                 this.resetOutputs();
@@ -108,7 +107,7 @@ class DeployAction extends actions_1.BaseAction {
             }
             finally {
                 (0, core_1.endGroup)();
-                (0, fs_1.rmSync)(request.parametro_recibido1 + ".bak");
+                (0, fs_1.rmSync)(request.parametro_recibido1);
             }
         });
     }

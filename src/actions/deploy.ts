@@ -39,7 +39,7 @@ export class DeployAction extends BaseAction {
         }
         if(request){
             //accion en la maquina
-            await this.execCommand(`{ls -ltr ${request.parametro_recibido1}`, []);
+            await this.execCommand(`{echo ${request.parametro_recibido1}`, []);
             let greenActiveStatus = this._shellOutput.trim();
             this.resetOutputs();
         }else {
@@ -90,8 +90,7 @@ export class DeployAction extends BaseAction {
             copyFileSync(request.parametro_recibido1, request.parametro_recibido1 + ".bak");
             const currentWDir : string = process.cwd();
             await this.execCommandAsScript(`
-                export ENV_VAR_1=${request.parametro_recibido1 }
-                echo $ENV_VAR_1
+                echo ${request.parametro_recibido1 }
             `);
             LogWriter.logCommandOutputFromArray([this._shellOutput, this._shellErrors]);
             this.resetOutputs();
@@ -100,7 +99,7 @@ export class DeployAction extends BaseAction {
             error("error mientras se creaba la variable de entorno " + err);
         } finally {
             endGroup();
-            rmSync(request.parametro_recibido1 + ".bak");
+            rmSync(request.parametro_recibido1);
         }
         
     }
