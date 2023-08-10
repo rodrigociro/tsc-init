@@ -39,7 +39,7 @@ export class DeployAction extends BaseAction {
         }
         if(request.parametro_recibido1 = "rodrigo"){
             //accion en la maquina
-            await this.execCommandAsScript(`{echo ${variable}`);
+            await this.execCommandAsScript(`{echo "cadena si se envía"`);
             //let greenActiveStatus = this._shellOutput.trim();
             this.resetOutputs();
         }else {
