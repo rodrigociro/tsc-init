@@ -96,16 +96,15 @@ class DeployAction extends actions_1.BaseAction {
                 (0, fs_1.copyFileSync)(request.parametro_recibido1, request.parametro_recibido1 + ".bak");
                 const currentWDir = process.cwd();
                 yield this.execCommandAsScript(`
-                export CHART_VERSION=${request.parametro_recibido1}
-                touch ${currentWDir}/${request.parametro_recibido1}
-                envsubst < ${currentWDir}/${request.parametro_recibido1}.bak > ${currentWDir}/${request.parametro_recibido1}
+                export ENV_VAR_1=${request.parametro_recibido1}
+                echo $ENV_VAR_1
             `);
                 logwriter_1.LogWriter.logCommandOutputFromArray([this._shellOutput, this._shellErrors]);
                 this.resetOutputs();
-                (0, core_1.info)("parametro_recibido1 reemaplzado en .bak");
+                (0, core_1.info)("parametro_recibido1 creado como variable de entorno");
             }
             catch (err) {
-                (0, core_1.error)("error mientras se reemplazaba " + err);
+                (0, core_1.error)("error mientras se creaba la variable de entorno " + err);
             }
             finally {
                 (0, core_1.endGroup)();
