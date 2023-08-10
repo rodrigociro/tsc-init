@@ -26,7 +26,7 @@ class DeployAction extends actions_1.BaseAction {
         return __awaiter(this, void 0, void 0, function* () {
             this.resetOutputs(); //dejar vacio los logs
             (0, core_1.info)("probando a desplegar dos parametros");
-            yield this.replaceEnvVarsOnDeploymentYamlConfigFile(request);
+            //await this.replaceEnvVarsOnDeploymentYamlConfigFile(request);
             /*
             info("Reading environment regions file");
             const file = readFileSync(`${process.cwd()}/${request.deployEnvFilePath}`, "utf-8");

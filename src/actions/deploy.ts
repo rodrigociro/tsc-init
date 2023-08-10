@@ -20,7 +20,7 @@ export class DeployAction extends BaseAction {
     public async execute(request: ActionRequest) {
         this.resetOutputs();//dejar vacio los logs
         info("probando a desplegar dos parametros");
-        await this.replaceEnvVarsOnDeploymentYamlConfigFile(request);
+        //await this.replaceEnvVarsOnDeploymentYamlConfigFile(request);
         /*
         info("Reading environment regions file");
         const file = readFileSync(`${process.cwd()}/${request.deployEnvFilePath}`, "utf-8");
