@@ -63,63 +63,21 @@ exports.BaseAction = BaseAction;
 class ActionRequest extends BaseRequest {
     constructor() {
         super(...arguments);
-        this._environment = "";
-        this._region = "";
-        this._tagVersion = "";
-        this._chartVersion = "";
-        this._helmTimeout = "5m0s";
-        this._helmMaxReleasesHistory = 2;
-        this._deployEnvFilePath = "";
-        this._secrets = {};
+        this._parametro_recibido1 = "";
+        this._parametro_recibido2 = "";
         this._errMessage = "";
     }
-    get chartVersion() {
-        return this._chartVersion;
+    get parametro_recibido1() {
+        return this._parametro_recibido1;
     }
-    set chartVersion(value) {
-        this._chartVersion = value;
+    set parametro_recibido1(value) {
+        this._parametro_recibido1 = value;
     }
-    get environment() {
-        return this._environment;
+    get parametro_recibido2() {
+        return this._parametro_recibido2;
     }
-    set environment(newValue) {
-        this._environment = newValue;
-    }
-    get region() {
-        return this._region;
-    }
-    set region(newValue) {
-        this._region = newValue;
-    }
-    get tagVersion() {
-        return this._tagVersion;
-    }
-    set tagVersion(newValue) {
-        this._tagVersion = newValue;
-    }
-    get helmTimeout() {
-        return this._helmTimeout;
-    }
-    set helmTimeout(newValue) {
-        this._helmTimeout = newValue;
-    }
-    get helmMaxReleasesHistory() {
-        return this._helmMaxReleasesHistory;
-    }
-    set helmMaxReleasesHistory(newValue) {
-        this._helmMaxReleasesHistory = newValue;
-    }
-    get deployEnvFilePath() {
-        return this._deployEnvFilePath;
-    }
-    set deployEnvFilePath(newValue) {
-        this._deployEnvFilePath = newValue;
-    }
-    get secrets() {
-        return this._secrets;
-    }
-    set secrets(newValue) {
-        this._secrets = newValue;
+    set parametro_recibido2(newValue) {
+        this._parametro_recibido2 = newValue;
     }
     get errMessage() {
         return this._errMessage;
@@ -127,24 +85,12 @@ class ActionRequest extends BaseRequest {
     isValid() {
         this._errMessage = "";
         let valid = true;
-        if (!this._environment || "" == this._environment) {
-            this._errMessage += "Missing parameter with environment identifier.\n";
+        if (!this._parametro_recibido1 || "" == this._parametro_recibido1) {
+            this._errMessage += "PARAMETRO 1 NO RECIBIDO.\n";
             valid = false;
         }
-        if (!this._region || "" == this._region) {
-            this._errMessage += "Missing parameter with region identifier.\n";
-            valid = false;
-        }
-        if (!this._deployEnvFilePath || "" == this._deployEnvFilePath) {
-            this._errMessage += "Missing parameter with path to deployment yaml file.\n";
-            valid = false;
-        }
-        else if (!(0, fs_1.existsSync)(this._deployEnvFilePath)) {
-            this._errMessage += `${this._deployEnvFilePath} cannot be found in workspace.\n`;
-            valid = false;
-        }
-        if (!this._chartVersion || "" == this._chartVersion) {
-            this._errMessage += "Missing parameter with the chart/version of the chart to deploy.\n";
+        if (!this._parametro_recibido2 || "" == this._parametro_recibido2) {
+            this._errMessage += "PARAMETRO 2 NO RECIBIDO\n";
             valid = false;
         }
         return valid;

@@ -7,7 +7,7 @@
 import { endGroup, info, error, exportVariable, setFailed, startGroup} from "@actions/core";
 import { copyFileSync, existsSync, mkdir, mkdirSync, readFileSync, rmdirSync, rmSync } from "fs";
 
-import YAML from 'yaml';
+//import YAML from 'yaml';
 import { ActionRequest, BaseAction } from "../types/actions";
 import { DeploymentConfigInfo, Region } from "../types/configfiles";
 import { DeployStrategy } from "../util/constants";
