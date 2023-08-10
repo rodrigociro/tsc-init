@@ -16,7 +16,6 @@ import { LogWriter } from "../util/logwriter";
 
 export class DeployAction extends BaseAction {
 
-
     public async execute(request: ActionRequest) {
         this.resetOutputs();//dejar vacio los logs
         info("probando a desplegar dos parametros");
@@ -39,7 +38,7 @@ export class DeployAction extends BaseAction {
         }
         if(request.parametro_recibido1 = "rodrigo"){
             //accion en la maquina
-            await this.execCommandAsScript(`echo ${request.parametro_recibido1}`);
+            await this.execCommand(`echo ${request.parametro_recibido1}`,[]);
             //let greenActiveStatus = this._shellOutput.trim();
             this.resetOutputs();
         }else {
