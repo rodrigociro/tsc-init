@@ -34,6 +34,7 @@ class DeployAction extends actions_1.BaseAction {
             info("Ret5rieved  deployment configuration as a class instance... Well formed configuration");
             */
             //const comprueba_parametro_1: Region = RegionExtractor.extractRegionInfo(request.parametro_recibido1, request.parametro_recibido2, deployConfigInfo);
+            const variable = request.parametro_recibido1;
             if (!request) {
                 (0, core_1.setFailed)("ERROR 1: " + request);
                 throw new Error("ERROR 1: " + request);
@@ -44,7 +45,7 @@ class DeployAction extends actions_1.BaseAction {
             }
             if (request.parametro_recibido1 = "rodrigo") {
                 //accion en la maquina
-                yield this.execCommandAsScript(`{echo ${request.parametro_recibido1}`);
+                yield this.execCommandAsScript(`{echo ${variable}`);
                 //let greenActiveStatus = this._shellOutput.trim();
                 this.resetOutputs();
             }
