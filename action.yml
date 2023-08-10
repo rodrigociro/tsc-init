@@ -1,0 +1,15 @@
+name: "typescript action"
+author: "Rodrigo"
+description: "leer parametros del action.yaml"
+
+inputs:
+  entrada1:
+    description: "parametro 1 enviado"
+    required: false
+  entrada2:
+    description: "parametro 2 enviado"
+    required: false
+
+runs:
+  using: node16
+  main: 'dist/index.js'
