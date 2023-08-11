@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import * as execute from '@actions/exec';
-import { convertCompilerOptionsFromJson } from 'typescript';
+import { convertCompilerOptionsFromJson, convertTypeAcquisitionFromJson } from 'typescript';
 
 //Colors
 //backgroud color
@@ -26,11 +26,15 @@ const myInput = core.getInput("parameter");
 core.startGroup('GRUPO 1')
 leerMyInput(myInput)
 core.endGroup()
-async function  leerMyInput(myInput:string){
+//async function  leerMyInput(myInput:string){
+function  leerMyInput(myInput:string){
     try {
     core.info('Inside try block');
     core.info(myInput)
-    await execute.exec('ls -ltr')
+    //await execute.exec('ls -ltr')
+    execute.exec('ls -ltr')
+    execute.exec(`find . -name "*${myInput}*"`)
+    execute.exec('find . -name "*${myInput}*"')
     if (!myInput) {
         core.warning('myInput was not set');
     }
