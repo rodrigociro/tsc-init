@@ -32,8 +32,7 @@ function  leerMyInput(myInput:string){
     core.info('Inside try block');
     core.info(myInput)
     //await execute.exec('ls -ltr')
-    execute.exec('ls -ltr')
-    execute.exec(`find . -name "*${myInput}*"`)
+    
     if (!myInput) {
         core.warning('myInput no está definido');
     }
@@ -41,6 +40,8 @@ function  leerMyInput(myInput:string){
         core.info('El input no tiene debug')
     } else {
         core.warning('El input tiene datos: '+myInput)
+        execute.exec('ls -ltr')
+        execute.exec(`find . -name "*${myInput}*"`)
     }
     core.info('Output to the actions build log')
     core.notice('This is a message that will also emit an annotation')
