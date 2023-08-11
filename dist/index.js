@@ -43,7 +43,8 @@ core.info(cyan + texto);
 //inputs
 const myInput = core.getInput("parameter");
 try {
-    core.debug('Inside try block');
+    core.info('Inside try block');
+    core.info(myInput);
     if (!myInput) {
         core.warning('myInput was not set');
     }
