@@ -13,4 +13,4 @@ jobs:
     - uses: ./
       with:
        parameter: "file.json"
-       other_name: "file.yaml"
+       other_name: "file.yml"
