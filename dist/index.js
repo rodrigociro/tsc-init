@@ -24,53 +24,37 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
-const execute = __importStar(require("@actions/exec"));
-//Colors
-//backgroud color
-var yellow = '\u001b[43m';
-var cyan = '\u001b[48;5;6m';
-var red = '\u001b[48;2;255;0;0m';
-//Foreground colors
-let magenta = '\u001b[35m';
-var cyanf = '\u001b[38;5;6m';
-var redf = '\u001b[38;2;255;0;0m';
-var texto = 'texto para probar colores';
-core.info(magenta + texto);
-core.info(redf + texto);
-core.info(cyanf + texto);
-core.info(yellow + texto);
-core.info(red + texto);
-core.info(cyan + texto);
-//inputs
-const myInput = core.getInput("parameter");
-core.startGroup('GRUPO 1');
-leerMyInput(myInput);
-//async function  leerMyInput(myInput:string){
-function leerMyInput(myInput) {
+const fs = __importStar(require("fs"));
+core.startGroup('READ: json file');
+const myInput = core.getInput("parameter", { required: true });
+const myInput2 = core.getInput("other_name", { required: true });
+validarInput(myInput);
+validarInput(myInput2);
+function validarInput(algo) {
     try {
-        core.info('Inside try block');
-        core.info(myInput);
-        //await execute.exec('ls -ltr')
-        if (!myInput) {
-            core.warning('myInput no está definido');
+        var splitted = algo.split(",");
+        if (splitted[1].toLowerCase() == "json") {
+            core.info("el valor de mi input es: " + algo);
+            leerArchivoJson(algo);
         }
-        if (core.isDebug()) {
-            core.info('El input no tiene debug');
+        else if (splitted[1].toLowerCase() == "yml" || splitted[1].toLowerCase() == "yaml") {
+            core.info("el valor de mi input es: " + algo);
+            leerArchivoYaml(algo);
         }
         else {
-            core.warning('El input tiene datos: ' + myInput);
-            execute.exec('ls -ltr');
-            execute.exec(`find . -name "*${myInput}*"`);
+            core.warning("mi input está vacío");
         }
-        core.info('Output to the actions build log');
-        core.notice('This is a message that will also emit an annotation');
-        core.setOutput('outputKey', 'outputVal');
     }
     catch (err) {
-        core.error(`Error ${err}, action may still succeed though`);
+        core.error(`Error leyendo: ${err}`);
     }
 }
-core.endGroup();
-core.startGroup('GRUPO 2');
-core.notice('este es un mensaje en el grupo2');
+function leerArchivoJson(algo) {
+    var archivo = fs.readFileSync(algo, 'utf-8');
+    var archivoData = (JSON.parse(archivo));
+    core.info(`${archivoData}`);
+}
+function leerArchivoYaml(algo) {
+    core.info(`${algo}`);
+}
 core.endGroup();

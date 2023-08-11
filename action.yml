@@ -4,7 +4,8 @@ description: "first steps with action/core"
 inputs:
   parameter: 
     description: "parameter from action.yml"
-    required: false
+  other_name:
+    description: "parametro from action.yml #2"  
 
 runs:
   using: 'node16'
