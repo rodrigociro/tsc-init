@@ -39,3 +39,5 @@ try {
 catch (err) {
   core.error(`Error ${err}, action may still succeed though`);
 }
+
+core.setOutput('outputKey', 'outputVal');
