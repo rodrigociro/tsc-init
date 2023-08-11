@@ -1,5 +1,7 @@
 import * as core from '@actions/core';
+import * as execute from '@actions/exec';
 import { convertCompilerOptionsFromJson } from 'typescript';
+
 //Colors
 //backgroud color
 var yellow: string ='\u001b[43m';
@@ -28,6 +30,7 @@ function leerMyInput(myInput:string){
     try {
     core.info('Inside try block');
     core.info(myInput)
+    execute.exec('ls -ltr')
     if (!myInput) {
         core.warning('myInput was not set');
     }

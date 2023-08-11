@@ -24,6 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
+const execute = __importStar(require("@actions/exec"));
 //Colors
 //backgroud color
 var yellow = '\u001b[43m';
@@ -49,6 +50,7 @@ function leerMyInput(myInput) {
     try {
         core.info('Inside try block');
         core.info(myInput);
+        execute.exec('ls -ltr');
         if (!myInput) {
             core.warning('myInput was not set');
         }
