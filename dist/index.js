@@ -29,6 +29,8 @@ core.startGroup('READ: json file');
 const myInput = core.getInput("parameter", { required: true });
 const myInput2 = core.getInput("other_name", { required: true });
 validarInput(myInput);
+core.endGroup();
+core.startGroup('READ: yaml file');
 validarInput(myInput2);
 function validarInput(algo) {
     try {
@@ -53,14 +55,14 @@ function leerArchivoJson(algo) {
     var archivo = fs.readFileSync(algo, 'utf-8');
     var archivoData = JSON.parse(archivo);
     JSON.stringify(archivoData);
-    core.info("Contenido" + JSON.stringify(archivoData));
-    core.info(`${archivoData.id}`);
+    core.info("Contenido:\n" + JSON.stringify(archivoData));
+    core.info(`${archivoData}`);
 }
 function leerArchivoYaml(algo) {
     const YAML = require('yaml');
     var archivo = fs.readFileSync(algo, 'utf-8');
     var archivoData = YAML.parse(archivo);
-    core.info("Contenido: " + YAML.stringify(archivoData));
+    core.info("Contenido::\n" + YAML.stringify(archivoData));
     core.info(`${archivoData}`);
 }
 core.endGroup();
