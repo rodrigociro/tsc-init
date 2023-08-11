@@ -1,6 +1,5 @@
 import * as core from '@actions/core';
 import * as fs from 'fs'
-import * as yaml from 'yaml';
 
 core.startGroup('READ: json file')
 
@@ -37,8 +36,9 @@ function leerArchivoJson(algo:string){
 }
 
 function leerArchivoYaml(algo:string){
+    const YAML = require('yaml')
     var archivo = fs.readFileSync(algo,'utf-8')
-    var archivoData = yaml.parse(algo)
+    var archivoData = YAML.parse(algo)
     core.info(`${archivoData}`)
 }
 

@@ -25,7 +25,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
 const fs = __importStar(require("fs"));
-const yaml = __importStar(require("yaml"));
 core.startGroup('READ: json file');
 const myInput = core.getInput("parameter", { required: true });
 const myInput2 = core.getInput("other_name", { required: true });
@@ -58,8 +57,9 @@ function leerArchivoJson(algo) {
     core.info(`${archivoData.id}`);
 }
 function leerArchivoYaml(algo) {
+    const YAML = require('yaml');
     var archivo = fs.readFileSync(algo, 'utf-8');
-    var archivoData = yaml.parse(algo);
+    var archivoData = YAML.parse(algo);
     core.info(`${archivoData}`);
 }
 core.endGroup();
