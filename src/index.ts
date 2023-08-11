@@ -14,6 +14,9 @@ validarInput(myInput2)
 function validarInput(algo:string){
     try{
         var splitted = algo.split(",");
+        for(var i=0;i<splitted.length;i++){
+            core.info(splitted[i])
+        }
         if( splitted[1] == "json"){
             core.info("el valor de mi input es: "+algo)
             leerArchivoJson(algo)
