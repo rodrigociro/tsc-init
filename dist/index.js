@@ -59,7 +59,7 @@ function leerArchivoJson(algo) {
 function leerArchivoYaml(algo) {
     const YAML = require('yaml');
     var archivo = fs.readFileSync(algo, 'utf-8');
-    var archivoData = YAML.parse(algo);
+    var archivoData = YAML.parse(archivo);
     core.info(`${archivoData}`);
 }
 core.endGroup();
