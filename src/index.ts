@@ -26,11 +26,11 @@ const myInput = core.getInput("parameter");
 core.startGroup('GRUPO 1')
 leerMyInput(myInput)
 core.endGroup()
-function leerMyInput(myInput:string){
+async function  leerMyInput(myInput:string){
     try {
     core.info('Inside try block');
     core.info(myInput)
-    execute.exec('ls -ltr')
+    await execute.exec('ls -ltr')
     if (!myInput) {
         core.warning('myInput was not set');
     }

@@ -22,6 +22,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
 const execute = __importStar(require("@actions/exec"));
@@ -47,26 +56,28 @@ core.startGroup('GRUPO 1');
 leerMyInput(myInput);
 core.endGroup();
 function leerMyInput(myInput) {
-    try {
-        core.info('Inside try block');
-        core.info(myInput);
-        execute.exec('ls -ltr');
-        if (!myInput) {
-            core.warning('myInput was not set');
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            core.info('Inside try block');
+            core.info(myInput);
+            yield execute.exec('ls -ltr');
+            if (!myInput) {
+                core.warning('myInput was not set');
+            }
+            if (core.isDebug()) {
+                core.info('HA LLEGADO EL INPUT');
+            }
+            else {
+                core.warning('NO HA LLEGADO EL INPUT');
+            }
+            core.info('Output to the actions build log');
+            core.notice('This is a message that will also emit an annotation');
+            core.setOutput('outputKey', 'outputVal');
         }
-        if (core.isDebug()) {
-            core.info('HA LLEGADO EL INPUT');
+        catch (err) {
+            core.error(`Error ${err}, action may still succeed though`);
         }
-        else {
-            core.warning('NO HA LLEGADO EL INPUT');
-        }
-        core.info('Output to the actions build log');
-        core.notice('This is a message that will also emit an annotation');
-        core.setOutput('outputKey', 'outputVal');
-    }
-    catch (err) {
-        core.error(`Error ${err}, action may still succeed though`);
-    }
+    });
 }
 core.startGroup('GRUPO 2');
 core.notice('este es un mensaje en el grupo2');
