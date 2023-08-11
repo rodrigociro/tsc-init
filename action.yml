@@ -2,7 +2,7 @@ name: "action sample"
 author: "Rodrigo"
 description: "first steps with action/core"
 inputs:
-  parameter_from_action_yml: 
+  parameter: 
     description: "parameter from action.yml"
     required: false
 

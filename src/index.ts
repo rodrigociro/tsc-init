@@ -19,7 +19,7 @@ core.info(cyan+texto)
 
 //inputs
 
-const myInput = core.getInput('parameter_from_action_yml');
+const myInput = core.getInput('parameter');
 try {
   core.debug('Inside try block');
   
