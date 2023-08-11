@@ -1,7 +1,6 @@
 import * as core from '@actions/core';
-import * as execute from '@actions/exec';
 import * as fs from 'fs'
-import { convertCompilerOptionsFromJson } from 'typescript';
+import * as yaml from 'yaml';
 
 core.startGroup('READ: json file')
 
@@ -31,17 +30,16 @@ function validarInput(algo:string){
 
 function leerArchivoJson(algo:string){
     var archivo = fs.readFileSync(algo, 'utf-8');
-    var archivoData = (JSON.parse(archivo))
+    var archivoData = JSON.parse(archivo)
     JSON.stringify(archivoData);
-    core.info(JSON.stringify(archivoData))
+    core.info("Contenido"+JSON.stringify(archivoData))
     core.info(`${archivoData.id}`)
-    
-    
-
 }
 
 function leerArchivoYaml(algo:string){
-    core.info(`${algo}`)
+    var archivo = fs.readFileSync(algo,'utf-8')
+    var archivoData = yaml.parse(algo)
+    core.info(`${archivoData}`)
 }
 
 core.endGroup()
