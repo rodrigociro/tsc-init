@@ -28,11 +28,10 @@ try {
   if (!myInput) {
     core.warning('myInput was not set');
   }
-  
   if (core.isDebug()) {
     core.info('HA LLEGADO EL INPUT')
   } else {
-    core.info('NO HA LLEGADO EL INPUT')
+    core.warning('NO HA LLEGADO EL INPUT')
   }
   core.info('Output to the actions build log')
   core.notice('This is a message that will also emit an annotation')
