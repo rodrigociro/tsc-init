@@ -33,9 +33,6 @@ validarInput(myInput2);
 function validarInput(algo) {
     try {
         var splitted = algo.split(".");
-        for (var i = 0; i < splitted.length; i++) {
-            core.info(splitted[i]);
-        }
         if (splitted[1] == "json") {
             core.info("el valor de mi input es: " + algo);
             leerArchivoJson(algo);
@@ -55,7 +52,9 @@ function validarInput(algo) {
 function leerArchivoJson(algo) {
     var archivo = fs.readFileSync(algo, 'utf-8');
     var archivoData = (JSON.parse(archivo));
-    core.info(`${archivoData}`);
+    JSON.stringify(archivoData);
+    core.info(JSON.stringify(archivoData));
+    core.info(`${archivoData.id}`);
 }
 function leerArchivoYaml(algo) {
     core.info(`${algo}`);
