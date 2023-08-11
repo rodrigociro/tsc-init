@@ -14,11 +14,11 @@ validarInput(myInput2)
 function validarInput(algo:string){
     try{
         var splitted = algo.split(",");
-        if( splitted[1].toLowerCase() == "json"){
+        if( splitted[1] == "json"){
             core.info("el valor de mi input es: "+algo)
             leerArchivoJson(algo)
         }
-        else if(splitted[1].toLowerCase() == "yml" || splitted[1].toLowerCase() == "yaml"){
+        else if(splitted[1] == "yml" || splitted[1] == "yaml"){
             core.info("el valor de mi input es: "+algo)
             leerArchivoYaml(algo) 
         }else{
