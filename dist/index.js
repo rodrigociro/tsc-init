@@ -32,7 +32,7 @@ validarInput(myInput);
 validarInput(myInput2);
 function validarInput(algo) {
     try {
-        var splitted = algo.split(",");
+        var splitted = algo.split(".");
         for (var i = 0; i < splitted.length; i++) {
             core.info(splitted[i]);
         }
