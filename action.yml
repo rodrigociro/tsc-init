@@ -3,8 +3,8 @@ author: "Rodrigo"
 description: "first steps with action/core"
 inputs:
   parameter_from_action_yml: 
-  description: "parameter from action.yml"
-  required: false
+    description: "parameter from action.yml"
+    required: false
 
 runs:
   using: 'node16'
