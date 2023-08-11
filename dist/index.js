@@ -42,22 +42,30 @@ core.info(red + texto);
 core.info(cyan + texto);
 //inputs
 const myInput = core.getInput("parameter");
-try {
-    core.info('Inside try block');
-    core.info(myInput);
-    if (!myInput) {
-        core.warning('myInput was not set');
+core.startGroup('GRUPO 1');
+leerMyInput(myInput);
+core.endGroup();
+function leerMyInput(myInput) {
+    try {
+        core.info('Inside try block');
+        core.info(myInput);
+        if (!myInput) {
+            core.warning('myInput was not set');
+        }
+        if (core.isDebug()) {
+            core.info('HA LLEGADO EL INPUT');
+        }
+        else {
+            core.warning('NO HA LLEGADO EL INPUT');
+        }
+        core.info('Output to the actions build log');
+        core.notice('This is a message that will also emit an annotation');
+        core.setOutput('outputKey', 'outputVal');
     }
-    if (core.isDebug()) {
-        core.info('HA LLEGADO EL INPUT');
+    catch (err) {
+        core.error(`Error ${err}, action may still succeed though`);
     }
-    else {
-        core.warning('NO HA LLEGADO EL INPUT');
-    }
-    core.info('Output to the actions build log');
-    core.notice('This is a message that will also emit an annotation');
 }
-catch (err) {
-    core.error(`Error ${err}, action may still succeed though`);
-}
-core.setOutput('outputKey', 'outputVal');
+core.startGroup('GRUPO 2');
+core.notice('este es un mensaje en el grupo2');
+core.endGroup();
