@@ -24,6 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
+//Colors
 //backgroud color
 var yellow = '\u001b[43m';
 var cyan = '\u001b[48;5;6m';
@@ -32,9 +33,29 @@ var red = '\u001b[48;2;255;0;0m';
 let magenta = '\u001b[35m';
 var cyanf = '\u001b[38;5;6m';
 var redf = '\u001b[38;2;255;0;0m';
-core.info(magenta + "hola");
-core.info(redf + "hola");
-core.info(cyanf + "hola");
-core.info(yellow + "hola");
-core.info(red + "hola");
-core.info(cyan + "hola");
+var texto = 'texto para probar colores';
+core.info(magenta + texto);
+core.info(redf + texto);
+core.info(cyanf + texto);
+core.info(yellow + texto);
+core.info(red + texto);
+core.info(cyan + texto);
+//inputs
+const myInput = core.getInput('input');
+try {
+    core.debug('Inside try block');
+    if (!myInput) {
+        core.warning('myInput was not set');
+    }
+    if (core.isDebug()) {
+        core.info('HA LLEGADO EL INPUT');
+    }
+    else {
+        core.info('NO HA LLEGADO EL INPUT');
+    }
+    core.info('Output to the actions build log');
+    core.notice('This is a message that will also emit an annotation');
+}
+catch (err) {
+    core.error(`Error ${err}, action may still succeed though`);
+}
