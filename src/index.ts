@@ -25,7 +25,7 @@ core.info(cyan+texto)
 const myInput = core.getInput("parameter");
 core.startGroup('GRUPO 1')
 leerMyInput(myInput)
-core.endGroup()
+
 //async function  leerMyInput(myInput:string){
 function  leerMyInput(myInput:string){
     try {
@@ -34,14 +34,13 @@ function  leerMyInput(myInput:string){
     //await execute.exec('ls -ltr')
     execute.exec('ls -ltr')
     execute.exec(`find . -name "*${myInput}*"`)
-    execute.exec('find . -name "*${myInput}*"')
     if (!myInput) {
-        core.warning('myInput was not set');
+        core.warning('myInput no está definido');
     }
     if (core.isDebug()) {
-        core.info('HA LLEGADO EL INPUT')
+        core.info('El input no tiene debug')
     } else {
-        core.warning('NO HA LLEGADO EL INPUT')
+        core.warning('El input tiene datos: '+myInput)
     }
     core.info('Output to the actions build log')
     core.notice('This is a message that will also emit an annotation')
@@ -51,6 +50,7 @@ function  leerMyInput(myInput:string){
     core.error(`Error ${err}, action may still succeed though`);
     }
 }
+core.endGroup()
 
 core.startGroup('GRUPO 2')
     core.notice('este es un mensaje en el grupo2')
