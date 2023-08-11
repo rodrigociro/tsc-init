@@ -26,12 +26,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
 const fs = __importStar(require("fs"));
 core.startGroup('READ: json file');
+//MEJORAR! revisar la funcion core/getMultipleInputs()
 const myInput = core.getInput("parameter", { required: true });
 const myInput2 = core.getInput("other_name", { required: true });
 validarInput(myInput);
 core.endGroup();
 core.startGroup('READ: yaml file');
 validarInput(myInput2);
+core.endGroup();
+//functions
 function validarInput(algo) {
     try {
         var splitted = algo.split(".");
@@ -65,4 +68,3 @@ function leerArchivoYaml(algo) {
     core.info("Contenido::\n" + YAML.stringify(archivoData));
     core.info(`${archivoData}`);
 }
-core.endGroup();

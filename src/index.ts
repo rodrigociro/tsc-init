@@ -2,16 +2,18 @@ import * as core from '@actions/core';
 import * as fs from 'fs'
 
 core.startGroup('READ: json file')
-
+//MEJORAR! revisar la funcion core/getMultipleInputs()
 const myInput = core.getInput("parameter",{required:true});
 const myInput2 = core.getInput("other_name",{required: true});
 
 validarInput(myInput)
-
 core.endGroup()
+
 core.startGroup('READ: yaml file')
 validarInput(myInput2)
+core.endGroup()
 
+//functions
 function validarInput(algo:string){
     try{
         var splitted = algo.split(".");
@@ -46,5 +48,5 @@ function leerArchivoYaml(algo:string){
     core.info(`${archivoData}`)
 }
 
-core.endGroup()
+
 
