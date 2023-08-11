@@ -41,7 +41,7 @@ core.info(yellow + texto);
 core.info(red + texto);
 core.info(cyan + texto);
 //inputs
-const myInput = core.getInput('parameter');
+const myInput = core.getInput("parameter");
 try {
     core.debug('Inside try block');
     if (!myInput) {
