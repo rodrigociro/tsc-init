@@ -9,4 +9,9 @@ let magenta:string='\u001b[35m'
 var cyanf:string='\u001b[38;5;6m'
 var redf:string='\u001b[38;2;255;0;0m'
 
+core.info(magenta+"hola")
 core.info(redf+"hola")
+core.info(cyanf+"hola")
+core.info(yellow+"hola")
+core.info(red+"hola")
+core.info(cyan+"hola")
