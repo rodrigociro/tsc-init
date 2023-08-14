@@ -1,16 +1,22 @@
-name: read files
-on:
-  push:
-    branches: [ "read-files" ]
-  pull_request:
-    branches: [ "read-files" ]
-  workflow_dispatch:
+on: push
+name: Jira Example
 jobs:
-  trabajo1:
+  prueba:
     runs-on: ubuntu-latest
+    name: Jira Example
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./
+    - name: Login
+      uses: atlassian/gajira-login@v3
+      env:
+        JIRA_BASE_URL: ${{ secrets.URL }}
+        JIRA_USER_EMAIL: ${{ secrets.EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.TOKEN }}
+
+    - name: Jira TODO
+      uses: atlassian/gajira-todo@v3
       with:
-       parameter: "file.json"
-       other_name: "file.yml"
+        project: PRJ
+        issuetype: Task
+        description: Created automatically via GitHub Actions
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
