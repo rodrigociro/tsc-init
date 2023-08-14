@@ -10,7 +10,7 @@ jobs:
       env:
         JIRA_BASE_URL: ${{ secrets.URL }}
         JIRA_USER_EMAIL: ${{ secrets.EMAIL }}
-        JIRA_API_TOKEN: ${{ secrets.TOKEN }}
+        JIRA_API_TOKEN: ${{ secrets.TOKENN }}
 
     - name: Jira TODO
       uses: atlassian/gajira-todo@v3
