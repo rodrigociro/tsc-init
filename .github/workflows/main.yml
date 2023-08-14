@@ -8,9 +8,9 @@ jobs:
     - name: Login
       uses: atlassian/gajira-login@v3
       env:
-        JIRA_BASE_URL: ${{ secrets.URL }}
-        JIRA_USER_EMAIL: ${{ secrets.EMAIL }}
-        JIRA_API_TOKEN: ${{ secrets.TOKENN }}
+        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+        JIRA_USER_EMAIL: ${{ secrets.JIRA_BASE_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_BASE_TOKEN }}
 
     - name: Jira TODO
       uses: atlassian/gajira-todo@v3
