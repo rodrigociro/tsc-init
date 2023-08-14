@@ -1,3 +1,3 @@
-email: {{ email }}
-token: {{ secrets.JIRA }}
-baseURL: {{ url }}
+email: {{ secrets.EMAIL }}
+token: {{ secrets.TOKENN }}
+baseURL: {{ secrets.URL }}
