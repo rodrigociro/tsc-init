@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Jira Example
     steps:
+    - uses: actions/checkout@v3
     - name: Login
       uses: atlassian/gajira-login@v3
       env:
