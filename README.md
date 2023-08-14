@@ -16,9 +16,9 @@ READ-FILES-BRACH: read files json/yaml files
 JIRA-BRANCH: Create TASK & TRANSITION
 
 Possible transitions:
-{ id: 41, name: Pending } transitions issue to 'Pending' status.
-{ id: 11, name: Start progress } transitions issue to 'Work in progress' status.
-{ id: 61, name: Mark as done } transitions issue to 'Done' status.
+- { id: 41, name: Pending } transitions issue to 'Pending' status.
+- { id: 11, name: Start progress } transitions issue to 'Work in progress' status.
+- { id: 61, name: Mark as done } transitions issue to 'Done' status.
 
 [![Jira Example](https://github.com/rodrigociro/tsc-init/actions/workflows/main.yml/badge.svg)](https://github.com/rodrigociro/tsc-init/actions/workflows/main.yml)
 
