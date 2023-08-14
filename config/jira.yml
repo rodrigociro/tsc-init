@@ -1,3 +1,1 @@
-email: {{ secrets.JIRA_USER_EMAIL }}
-token: {{ secrets.JIRA_API_TOKEN  }}
-baseURL: {{ secrets.JIRA_BASE_URL }}
+issue: PRJ-2

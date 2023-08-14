@@ -22,3 +22,9 @@ jobs:
 
     - name: Log created issue
       run: echo "Issue ${{ steps.create.outputs.issue }} was created"
+    
+    - name: Transition issue
+      uses: atlassian/gajira-transition@v3
+      with:
+        issue: ${{ steps.create.outputs.issue }}
+        transition: "In progress"
