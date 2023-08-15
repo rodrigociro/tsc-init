@@ -38,7 +38,7 @@ function getDataFromAction(url:string,method:string,options?:string){
                 info("hola desde finally")
             });
     }else if(method.toUpperCase() == 'POST'){
-        var post_url = URL.concat(API_VERSION_KEY,"/create")
+        var post_url = BASE_URL_KEY.concat(API_VERSION_KEY,"/create")
         info(post_url)
         var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
         info(JSON.stringify(jsonfile))
