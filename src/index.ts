@@ -3,9 +3,22 @@ import  { getInput, info, error, setFailed } from '@actions/core'
 
 var url = 'https://dummy.restapiexample.com/api/v1/employees'
 
-var resultado = axios.get(url).then(function (response){
-})
+axios.get(url)
+  .then(function (response) {
+    evaluar(response);
+  })
+  .catch(function (error) {
+    info("hola desde el error")
+  })
+  .finally(function () {
+    info("hola desde finally")
+  });
 
-info("Contenido:\n"+JSON.stringify(resultado))
-
-
+function evaluar(response:AxiosResponse) {
+    var datos = response.data
+    var estado = response.status
+    var estadoTexto = response.statusText
+    var cabeceras = response.headers
+    var configuracion = response.config
+    info("datos:\n"+JSON.stringify(datos)+"respuesta:\n"+JSON.stringify(estado))
+}
