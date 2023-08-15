@@ -2,6 +2,12 @@ name: "typescript action"
 author: "Rodrigo"
 description: "leer parametros del action.yaml"
 
+inputs:
+  method:
+    required: false
+  options:
+    required: false  
+
 runs:
   using: node16
   main: 'dist/index.js'
