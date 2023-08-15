@@ -8,12 +8,15 @@ on:
 jobs:
   trabajo1:
     runs-on: ubuntu-latest
+    outputs:
+      prueba: ${{ steps.testeando.outputs.prueba }}
     steps:
     - uses: actions/checkout@v3
-    - uses: ./
-      with:
-       parameter: "file.json"
-       other_name: "file.yml"
+    - name: testeando
+      uses: ./
+        with:
+         parameter: "file.json"
+         other_name: "file.yml"
   trabajo2:
     needs: ['trabajo1']
     runs-on: ubuntu-latest
