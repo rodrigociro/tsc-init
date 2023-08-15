@@ -22,4 +22,4 @@ jobs:
     needs: ['trabajo1']
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ needs.job1.outputs.prueba }}
+      - run: echo ${{ needs.trabajo1.outputs.prueba }}
