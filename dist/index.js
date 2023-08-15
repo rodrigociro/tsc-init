@@ -32,7 +32,7 @@ function getDataFromAction(url, method, options) {
             evaluar(response);
         })
             .catch(function (error) {
-            error("Something wrong with get: " + error);
+            (0, core_1.setFailed)("Something wrong with get: " + error);
         })
             .finally(function () {
             (0, core_1.info)("hola desde finally");
@@ -45,6 +45,6 @@ function getDataFromAction(url, method, options) {
         console.log("hi");
     }
     else {
-        (0, core_1.error)("Wrong method value");
+        (0, core_1.setFailed)("Wrong method value");
     }
 }

@@ -32,7 +32,7 @@ function getDataFromAction(url:string,method:string,options?:string){
                 evaluar(response);
             })
             .catch(function (error) {
-                error("Something wrong with get: "+error)
+                setFailed("Something wrong with get: "+error)
             })
             .finally(function () {
                 info("hola desde finally")
@@ -42,7 +42,7 @@ function getDataFromAction(url:string,method:string,options?:string){
     }else if(method=='PUT'){
         console.log("hi")
     }else{
-        error("Wrong method value")
+        setFailed("Wrong method value")
     }
 }
 
