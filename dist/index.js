@@ -1,10 +1,34 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const core_1 = require("@actions/core");
+const fs = __importStar(require("fs"));
 var method = (0, core_1.getInput)("method");
 if (method == "") {
     method = 'GET';
@@ -16,24 +40,20 @@ var PATH = '/employees';
 var URL = BASE_URL_KEY.concat(API_VERSION_KEY, PATH);
 getDataFromAction(URL, method);
 //function to show data from API request
-function evaluateResponse(response) {
+function evaluateResponseGet(response) {
     var data = response.data;
     var status = response.status;
     var statusText = response.statusText;
     var headers = response.headers;
     var config = response.config;
-    (0, core_1.info)("data:\n" + JSON.stringify(data) +
-        "\nstatus:\n" + JSON.stringify(status) +
-        "\nstatusText:" + JSON.stringify(statusText) +
-        "\nheaders:" + JSON.stringify(headers) +
-        "\nconfig:" + JSON.stringify(config));
+    (0, core_1.info)("DATA: " + JSON.stringify(data) + "\nSTATUS: " + JSON.stringify(status) + "\nSTATUS-TEXT: " + JSON.stringify(statusText) + "\nHEADERS: " + JSON.stringify(headers) + "\nCONFIG: " + JSON.stringify(config));
 }
 //main function
 function getDataFromAction(url, method, options) {
     if (method.toUpperCase() == 'GET') {
         axios_1.default.get(URL)
             .then(function (response) {
-            evaluateResponse(response);
+            evaluateResponseGet(response);
         })
             .catch(function (error) {
             (0, core_1.setFailed)("Something wrong with get: " + error);
@@ -43,7 +63,15 @@ function getDataFromAction(url, method, options) {
         });
     }
     else if (method.toUpperCase() == 'POST') {
-        console.log("hi");
+        var post_url = URL.concat(API_VERSION_KEY, "/create");
+        var jsonfile = fs.readFileSync('../pruebaCreate.json', 'utf-8');
+        axios_1.default.post(post_url, jsonfile)
+            .then(function (response) {
+            (0, core_1.info)(JSON.stringify(response.data));
+        })
+            .catch(function (error) {
+            (0, core_1.setFailed)(error);
+        });
     }
     else if (method.toUpperCase() == 'PUT') {
         console.log("hi");
