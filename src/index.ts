@@ -39,7 +39,7 @@ function getDataFromAction(url:string,method:string,options?:string){
             });
     }else if(method.toUpperCase() == 'POST'){
         var post_url = URL.concat(API_VERSION_KEY,"/create")
-        var jsonfile = fs.readFileSync('../pruebaCreate.json', 'utf-8');
+        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
         axios.post(post_url, jsonfile)
             .then(function (response) {
                 info(JSON.stringify(response.data));

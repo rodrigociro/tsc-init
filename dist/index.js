@@ -64,7 +64,7 @@ function getDataFromAction(url, method, options) {
     }
     else if (method.toUpperCase() == 'POST') {
         var post_url = URL.concat(API_VERSION_KEY, "/create");
-        var jsonfile = fs.readFileSync('../pruebaCreate.json', 'utf-8');
+        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
         axios_1.default.post(post_url, jsonfile)
             .then(function (response) {
             (0, core_1.info)(JSON.stringify(response.data));
