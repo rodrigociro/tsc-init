@@ -60,7 +60,7 @@ function leerArchivoJson(algo) {
     JSON.stringify(archivoData);
     core.info("Contenido:\n" + JSON.stringify(archivoData));
     core.info(`${archivoData}`);
-    core.setOutput('prueba', "ESTO ES EL OUTPUT");
+    core.setOutput('prueba', JSON.stringify(archivoData));
 }
 function leerArchivoYaml(algo) {
     const YAML = require('yaml');
