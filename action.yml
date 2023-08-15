@@ -3,5 +3,5 @@ author: "Rodrigo"
 description: "leer parametros del action.yaml"
 
 runs:
-  using: node20
+  using: node16
   main: 'dist/index.js'
