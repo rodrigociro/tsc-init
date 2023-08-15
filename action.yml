@@ -6,9 +6,6 @@ inputs:
   entrada1:
     description: "parametro 1 enviado"
     required: false
-  entrada2:
-    description: "parametro 2 enviado"
-    required: false
 
 runs:
   using: node16

@@ -1,9 +1,9 @@
 name: typescript action
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "rest-api" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "rest-api" ]
   workflow_dispatch:
 jobs:
   trabajo1:
@@ -13,4 +13,3 @@ jobs:
     - uses: ./
       with:
        entrada1: "rodrigo"
-       entrada2: "espinoza"
