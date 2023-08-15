@@ -11,6 +11,9 @@ Typescript repository
 
 ## READ-FILES-BRACH: read files json/yaml files
 
+this workflow will use the output from job1 to job2
+
+
 [![Jira Example](https://github.com/rodrigociro/tsc-init/actions/workflows/main.yml/badge.svg)](https://github.com/rodrigociro/tsc-init/actions/workflows/main.yml)
 
 ## JIRA-BRANCH: Create TASK & TRANSITION
