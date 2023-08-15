@@ -12,7 +12,7 @@ jobs:
       prueba: ${{ steps.testeando.outputs.prueba }}
     steps:
     - uses: actions/checkout@v3
-    - name: testeando
+    - id: testeando
       uses: ./
         with:
          parameter: "file.json"
