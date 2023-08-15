@@ -14,3 +14,8 @@ jobs:
       with:
        parameter: "file.json"
        other_name: "file.yml"
+  trabajo2:
+    needs: ['trabajo1']
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ needs.job1.outputs.prueba }}

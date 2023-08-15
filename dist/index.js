@@ -68,3 +68,4 @@ function leerArchivoYaml(algo) {
     core.info("Contenido::\n" + YAML.stringify(archivoData));
     core.info(`${archivoData}`);
 }
+core.setOutput("prueba", myInput2);

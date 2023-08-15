@@ -5,7 +5,11 @@ inputs:
   parameter: 
     description: "parameter from action.yml"
   other_name:
-    description: "parametro from action.yml #2"  
+    description: "parametro from action.yml #2"
+
+outputs:
+  prueba:
+    description: "resultado"
 
 runs:
   using: 'node16'

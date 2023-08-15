@@ -48,5 +48,5 @@ function leerArchivoYaml(algo:string){
     core.info(`${archivoData}`)
 }
 
-
+core.setOutput("prueba", myInput2)
 
