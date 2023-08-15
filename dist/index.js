@@ -5,8 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const core_1 = require("@actions/core");
-var url = 'https://dummy.restapiexample.com/api/v1/employees';
-axios_1.default.get(url)
+var BASE_URL_KEY = 'https://dummy.restapiexample.com';
+var API_VERSION_KEY = "/api/v1";
+axios_1.default.get(BASE_URL_KEY + API_VERSION_KEY)
     .then(function (response) {
     evaluar(response);
 })

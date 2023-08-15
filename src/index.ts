@@ -1,9 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
 import  { getInput, info, error, setFailed } from '@actions/core'
 
-var url = 'https://dummy.restapiexample.com/api/v1/employees'
+var BASE_URL_KEY = 'https://dummy.restapiexample.com'
+var API_VERSION_KEY = "/api/v1"
 
-axios.get(url)
+
+
+axios.get(BASE_URL_KEY+API_VERSION_KEY)
   .then(function (response) {
     evaluar(response);
   })
@@ -22,3 +25,4 @@ function evaluar(response:AxiosResponse) {
     var configuracion = response.config
     info("datos:\n"+JSON.stringify(datos)+"respuesta:\n"+JSON.stringify(estado))
 }
+
