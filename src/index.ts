@@ -38,6 +38,7 @@ function leerArchivoJson(algo:string){
     JSON.stringify(archivoData);
     core.info("Contenido:\n"+JSON.stringify(archivoData))
     core.info(`${archivoData}`)
+    core.setOutput('prueba',JSON.stringify(archivoData))
 }
 
 function leerArchivoYaml(algo:string){
@@ -49,5 +50,5 @@ function leerArchivoYaml(algo:string){
 }
 
 
-core.setOutput("prueba","FFFFFFFFFF")
+
 
