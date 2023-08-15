@@ -9,10 +9,11 @@ jobs:
   trabajo1:
     runs-on: ubuntu-latest
     outputs:
-      prueba: ${{ steps.testeando.outputs.test }}
+      prueba: ${{ steps.hola.outputs.prueba }}
     steps:
     - uses: actions/checkout@v3
     - name: testeando
+      id: hola
       uses: ./
       with:
         parameter: "file.json"
