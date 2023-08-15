@@ -9,14 +9,14 @@ jobs:
   trabajo1:
     runs-on: ubuntu-latest
     outputs:
-      prueba: ${{ steps.testeando.outputs.prueba }}
+      prueba: ${{ steps.testeando.outputs.test }}
     steps:
     - uses: actions/checkout@v3
-    - id: testeando
+    - name: testeando
       uses: ./
-        with:
-         parameter: "file.json"
-         other_name: "file.yml"
+      with:
+        parameter: "file.json"
+        other_name: "file.yml"
   trabajo2:
     needs: ['trabajo1']
     runs-on: ubuntu-latest
