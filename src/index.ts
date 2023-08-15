@@ -5,6 +5,7 @@ var BASE_URL_KEY = 'https://dummy.restapiexample.com'
 var API_VERSION_KEY = "/api/v1"
 var URL:string = ""
 URL.concat(BASE_URL_KEY,API_VERSION_KEY)
+info(URL)
 
 axios.get(URL)
   .then(function (response) {

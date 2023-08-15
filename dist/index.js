@@ -9,6 +9,7 @@ var BASE_URL_KEY = 'https://dummy.restapiexample.com';
 var API_VERSION_KEY = "/api/v1";
 var URL = "";
 URL.concat(BASE_URL_KEY, API_VERSION_KEY);
+(0, core_1.info)(URL);
 axios_1.default.get(URL)
     .then(function (response) {
     evaluar(response);
