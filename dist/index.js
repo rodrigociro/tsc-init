@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const core_1 = require("@actions/core");
 var url = 'https://dummy.restapiexample.com/api/v1/employees';
-axios_1.default.get(url)
-    .then(function (response) {
-    (0, core_1.info)("Contenido:\n" + JSON.stringify(response.data));
+var resultado = axios_1.default.get(url).then(function (response) {
 });
+(0, core_1.info)("Contenido:\n" + JSON.stringify(resultado));
