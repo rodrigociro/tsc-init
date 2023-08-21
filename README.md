@@ -42,9 +42,11 @@ Possible transitions:
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/0ba013bd-e33c-4d50-820b-b5b98ddaa481)
 
 
+
 ### PUT METHOD
 
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/79990391-ec9f-4d7a-959e-a90e0f74f83d)
+
 
 
 ### DELETE METOHD
