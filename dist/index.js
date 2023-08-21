@@ -76,7 +76,17 @@ function getDataFromAction(url, method, options) {
         });
     }
     else if (method.toUpperCase() == 'PUT') {
-        console.log("hi");
+        var put_url = BASE_URL_KEY.concat(API_VERSION_KEY, "/update");
+        (0, core_1.info)(put_url);
+        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
+        (0, core_1.info)(JSON.stringify(jsonfile));
+        axios_1.default.post(put_url, jsonfile)
+            .then(function (response) {
+            (0, core_1.info)(JSON.stringify(response.data));
+        })
+            .catch(function (error) {
+            (0, core_1.setFailed)(error);
+        });
     }
     else {
         (0, core_1.setFailed)("Wrong method value");

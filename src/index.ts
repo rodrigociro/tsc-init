@@ -50,7 +50,17 @@ function getDataFromAction(url:string,method:string,options?:string){
                 setFailed(error);
             });
     }else if(method.toUpperCase() =='PUT'){
-        console.log("hi")
+        var put_url = BASE_URL_KEY.concat(API_VERSION_KEY,"/update")
+        info(put_url)
+        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
+        info(JSON.stringify(jsonfile))
+        axios.post(put_url, jsonfile)
+            .then(function (response) {
+                info(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                setFailed(error);
+            });
     }else{
         setFailed("Wrong method value")
     }
