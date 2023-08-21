@@ -14,5 +14,5 @@ jobs:
     - uses: actions/checkout@v3
     - uses: ./
       with:
-        method: 'DELETE'
+        method: 'GET'
       

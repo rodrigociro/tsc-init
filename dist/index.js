@@ -33,7 +33,7 @@ var method = (0, core_1.getInput)("method");
 if (method == "") {
     method = 'GET';
 }
-var estoEsUnaPrueba = 'https://dummy.restapiexample.com/';
+var estoEsUnaPrueba = 'https://dummy.restapiexample.com';
 var options = (0, core_1.getInput)("options");
 var BASE_URL_KEY = process.env.MY_URL ? 'no hay' : estoEsUnaPrueba;
 var API_VERSION_KEY = '/api/v1';
