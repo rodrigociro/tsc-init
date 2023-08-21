@@ -33,12 +33,12 @@ var method = (0, core_1.getInput)("method");
 if (method == "") {
     method = 'GET';
 }
+var estoEsUnaPrueba = 'https://dummy.restapiexample.com/';
 var options = (0, core_1.getInput)("options");
-var BASE_URL_KEY = process.env.prueba ? "no hay" : "a";
-(0, core_1.info)(BASE_URL_KEY);
+var BASE_URL_KEY = process.env.MY_URL ? 'no hay' : estoEsUnaPrueba;
 var API_VERSION_KEY = '/api/v1';
 var PATH = '/employees';
-var URL = BASE_URL_KEY.concat(API_VERSION_KEY, PATH);
+var URL = BASE_URL_KEY === null || BASE_URL_KEY === void 0 ? void 0 : BASE_URL_KEY.toString().concat(API_VERSION_KEY, PATH);
 getDataFromAction(URL, method);
 //function to show data from API request
 function evaluateResponseGet(response) {
