@@ -8,10 +8,11 @@ on:
 jobs:
   trabajo1:
     runs-on: ubuntu-latest
+    env:
+        MY_URL: ${{ secrets.MY_URL }}
     steps:
     - uses: actions/checkout@v3
     - uses: ./
       with:
         method: 'DELETE'
-      env:
-        MY_URL: ${{ secrets.MY_URL }}
+      

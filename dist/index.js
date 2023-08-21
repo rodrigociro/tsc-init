@@ -34,7 +34,7 @@ if (method == "") {
     method = 'GET';
 }
 var options = (0, core_1.getInput)("options");
-var BASE_URL_KEY = process.env.MY_URL ? "" : "";
+var BASE_URL_KEY = process.env.MY_URL ? "no hay" : "a";
 (0, core_1.info)(BASE_URL_KEY);
 var API_VERSION_KEY = '/api/v1';
 var PATH = '/employees';
