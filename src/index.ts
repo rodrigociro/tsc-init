@@ -8,6 +8,7 @@ if(method == ""){
 }
 var options = getInput("options")
 var BASE_URL_KEY = process.env.MY_URL ? "" : "";
+info(BASE_URL_KEY)
 var API_VERSION_KEY = '/api/v1'
 var PATH = '/employees'
 var URL = BASE_URL_KEY.concat(API_VERSION_KEY,PATH)
