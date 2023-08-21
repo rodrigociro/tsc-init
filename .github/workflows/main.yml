@@ -9,7 +9,7 @@ jobs:
   trabajo1:
     runs-on: ubuntu-latest
     env:
-      prueba: ${{ secrets.MY_URL }}
+      prueba: ${{ env.ENV_APP.MY_URL }}
     steps:
     - uses: actions/checkout@v3
     - uses: ./
