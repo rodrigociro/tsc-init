@@ -28,7 +28,7 @@ Possible transitions:
 
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/5437825f-0dd7-477f-9cff-d2a450cd23ed)
 
-## REST-API BRANCH: Test request(GET, POST)
+## REST-API BRANCH: Test request(GET, POST, PUT, DELETE)
 
 [![typescript action](https://github.com/rodrigociro/tsc-init/actions/workflows/main.yml/badge.svg)](https://github.com/rodrigociro/tsc-init/actions/workflows/main.yml)
 
@@ -49,7 +49,7 @@ Possible transitions:
 
 
 
-### DELETE METOHD
+### DELETE METHOD
 
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/33b40ee0-95b7-40c2-9a49-462808ddf1fd)
 
