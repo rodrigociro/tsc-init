@@ -76,11 +76,24 @@ function getDataFromAction(url, method, options) {
         });
     }
     else if (method.toUpperCase() == 'PUT') {
-        var put_url = BASE_URL_KEY.concat(API_VERSION_KEY, "/update");
+        var put_url = BASE_URL_KEY.concat(API_VERSION_KEY, "/update/21");
         (0, core_1.info)(put_url);
         var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
         (0, core_1.info)(JSON.stringify(jsonfile));
-        axios_1.default.post(put_url, jsonfile)
+        axios_1.default.put(put_url, jsonfile)
+            .then(function (response) {
+            (0, core_1.info)(JSON.stringify(response.data));
+        })
+            .catch(function (error) {
+            (0, core_1.setFailed)(error);
+        });
+    }
+    else if (method.toUpperCase() == 'DELETE') {
+        var delete_url = BASE_URL_KEY.concat(API_VERSION_KEY, "/delete/2");
+        (0, core_1.info)(delete_url);
+        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
+        (0, core_1.info)(JSON.stringify(jsonfile));
+        axios_1.default.delete(delete_url)
             .then(function (response) {
             (0, core_1.info)(JSON.stringify(response.data));
         })
