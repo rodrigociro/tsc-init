@@ -37,7 +37,7 @@ function getDataFromAction(url:string,method:string,options?:string){
                 setFailed("Something wrong with get: "+error)
             })
             .finally(function () {
-                info("$process.env.MY_URL}")
+                info("${process.env.MY_URL}")
             });
     }else if(method.toUpperCase() == 'POST'){
         var post_url = BASE_URL_KEY.concat(API_VERSION_KEY,"/create")
