@@ -9,6 +9,10 @@ if(method == ""){
 var estoEsUnaPrueba = 'https://dummy.restapiexample.com'
 var options = getInput("options")
 var BASE_URL_KEY = process.env.MY_URL ? 'no hay' : estoEsUnaPrueba;
+if(process.env.MY_URL != ""){
+    const a = process.env.MY_URL
+    console.log(a)
+}
 var API_VERSION_KEY = '/api/v1'
 var PATH = '/employees'
 var URL = BASE_URL_KEY?.toString().concat(API_VERSION_KEY,PATH)
