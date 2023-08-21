@@ -13,3 +13,5 @@ jobs:
     - uses: ./
       with:
         method: 'DELETE'
+      env:
+        MY_URL: ${{ secrets.MY_URL }}

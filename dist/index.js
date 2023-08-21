@@ -34,7 +34,7 @@ if (method == "") {
     method = 'GET';
 }
 var options = (0, core_1.getInput)("options");
-var BASE_URL_KEY = 'https://dummy.restapiexample.com';
+var BASE_URL_KEY = process.env.MY_URL ? "" : "";
 var API_VERSION_KEY = '/api/v1';
 var PATH = '/employees';
 var URL = BASE_URL_KEY.concat(API_VERSION_KEY, PATH);
