@@ -7,7 +7,7 @@ if(method == ""){
     method = 'GET'
 }
 var options = getInput("options")
-var BASE_URL_KEY = process.env.MY_URL ? "no hay" : "a";
+var BASE_URL_KEY = process.env.prueba ? "no hay" : "a";
 info(BASE_URL_KEY)
 var API_VERSION_KEY = '/api/v1'
 var PATH = '/employees'
