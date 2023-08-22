@@ -7,12 +7,29 @@ var method = getInput("method")
 if(method == ""){
     method = 'GET'
 }
-var estoEsUnaPrueba = 'https://dummy.restapiexample.com'
-var options = getInput("options")
-var BASE_URL_KEY = process.env.MY_URL ? 'no hay' : estoEsUnaPrueba;
+var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-pre.dmp.scger.pre.corp'
 var API_VERSION_KEY = '/api/v1'
-var PATH = '/employees'
-var URL = BASE_URL_KEY?.toString().concat(API_VERSION_KEY,PATH)
+var method = getInput("method")
+if(method == ""){
+    method = 'GET'
+}
+var applicationName = getInput("applicationName")
+var applicationVersion = getInput("applicationVersion")
+var dmpAppId = getInput("dmpAppId")
+var currentBranch = getInput("branch")
+var appCommitId = getInput("commitId")
+//boolean isBuildSuccessfull add "needs: ['previous-jobs']"
+
+var config: {[key: string]: string} = {
+    'applicationName': applicationName,
+    'applicationVersion' : applicationVersion,
+    'dmpAppId' : dmpAppId,
+    'currentBranch' : currentBranch,
+    'appCommitId' : appCommitId
+}
+
+
+var URL = BASE_URL_KEY?.toString().concat(API_VERSION_KEY)
 
 getDataFromAction(URL,method)
 
@@ -37,14 +54,12 @@ function getDataFromAction(url:string,method:string,options?:string){
                 setFailed("Something wrong with get: "+error)
             })
             .finally(function () {
-                info("Hola desde Finally")
+                info("hello desde Finally")
             });
     }else if(method.toUpperCase() == 'POST'){
-        var post_url = BASE_URL_KEY.concat(API_VERSION_KEY,"/create")
+        var post_url = BASE_URL_KEY.concat(API_VERSION_KEY)
         info(post_url)
-        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
-        info(JSON.stringify(jsonfile))
-        axios.post(post_url, jsonfile)
+        axios.post(post_url, config)
             .then(function (response) {
                 info(JSON.stringify(response.data));
             })

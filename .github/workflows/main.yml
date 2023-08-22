@@ -1,18 +1,31 @@
 name: typescript action
 on:
-  push:
-    branches: [ "rest-api" ]
-  pull_request:
-    branches: [ "rest-api" ]
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      runner:
+        required: true
+        type: string
+      repo: 
+        required: true
+        type: string
+    outputs:
+      jira:
+        description: id jira ticket
+        value: ${{ jobs.register_app_dmp.jira_id }}
+
 jobs:
-  trabajo1:
-    runs-on: ubuntu-latest
-    env:
-      MY_URL: ${{ vars.ENV_APP.MY_URL }}
+  register_app_dmp:
+    runs-on: ${{ inputs.runner }}
+    outputs:
+      jira_id: ${{ steps.dmp.outputs.jira_id }}
     steps:
     - uses: actions/checkout@v3
     - uses: ./
+      id: dmp
       with:
-        method: 'GET'
-      
+        method: 'POST'
+        applicationName: ${{ inputs.repo }}
+        applicationVersion: '1.00.00'
+        dmpAppIp: ''
+        currentBranch: 'master'
+        appCommitId: ''
