@@ -60,7 +60,7 @@ function getDataFromAction(url, method, options) {
             (0, core_1.setFailed)("Something wrong with get: " + error);
         })
             .finally(function () {
-            (0, core_1.info)("${process.env.MY_URL}");
+            (0, core_1.info)("Hola desde Finally");
         });
     }
     else if (method.toUpperCase() == 'POST') {
