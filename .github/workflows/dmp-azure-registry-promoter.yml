@@ -8,35 +8,35 @@ on:
   workflow_dispatch:
     inputs:
       deploy:
-        description: 
+        description: "para desplegar"
         required: true
         default: 'false'
       azure_source_registry:
-        description: 
+        description: "para desplegar"
         required: true
       azure_source_image:
-        description: 
+        description: "para desplegar"
         required: true
       azure_target_registry:
-        description: 
+        description: "para desplegar"
         required: true
       azure_suscription:
-        description: 
+        description: "para desplegar"
         required: true
       azure_credentials:
-        description: 
+        description: "para desplegar"
         required: true
 
 jobs:
   docker_image_promotion:
-    runs-on: DEV
+    runs-on: ubuntu-latest
     steps:
-    - uses: name: Paso 2
-        if: ${{ github.event.inputs.deploy == 'true' }} 
-        run: |
-          echo ${github.event.inputs.azure_source_registry}
-          echo ${github.event.inputs.azure_source_image}
-          echo ${github.event.inputs.azure_target_registry}
-          echo ${github.event.inputs.azure_suscription}
-          echo ${github.event.inputs.azure_credentials}
+    - name: Paso 2
+      if: ${{ github.event.inputs.deploy == 'true' }} 
+      run: |
+        echo ${github.event.inputs.azure_source_registry}
+        echo ${github.event.inputs.azure_source_image}
+        echo ${github.event.inputs.azure_target_registry}
+        echo ${github.event.inputs.azure_suscription}
+        echo ${github.event.inputs.azure_credentials}
 
