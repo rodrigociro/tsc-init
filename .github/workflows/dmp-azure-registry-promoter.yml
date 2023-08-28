@@ -41,7 +41,7 @@ jobs:
         echo "Azure Target Registry: ${{ github.event.inputs.azure_target_registry }}"
         echo "Azure Subscription: ${{ github.event.inputs.azure_subscription }}"
         echo "Azure Credentials: ${{ github.event.inputs.azure_credentials }} y mi secreto es ${AZURE_SECRET}"
-        if [[ ${AZURE_SECRET} == "esto es usna prueba" ]]
+        if [[ ${AZURE_SECRET} == "esto es una prueba" ]]
         then
           echo SI
         else
