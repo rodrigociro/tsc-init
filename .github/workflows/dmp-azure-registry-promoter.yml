@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Paso 2
-      if: ${{ github.event.inputs.deploy == 'true' }} 
+      if: ${{ github.event.inputs.deploy == 'True' }} 
       run: |
         echo "Azure Source Registry: ${{ github.event.inputs.azure_source_registry }}"
         echo "Azure Source Image: ${{ github.event.inputs.azure_source_image }}"
