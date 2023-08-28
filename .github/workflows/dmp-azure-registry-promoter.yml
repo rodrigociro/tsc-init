@@ -34,9 +34,9 @@ jobs:
     - name: Paso 2
       if: ${{ github.event.inputs.deploy == 'true' }} 
       run: |
-        echo ${github.event.inputs.azure_source_registry}
-        echo ${github.event.inputs.azure_source_image}
-        echo ${github.event.inputs.azure_target_registry}
-        echo ${github.event.inputs.azure_suscription}
-        echo ${github.event.inputs.azure_credentials}
+        echo "Azure Source Registry: ${{ github.event.inputs.azure_source_registry }}"
+        echo "Azure Source Image: ${{ github.event.inputs.azure_source_image }}"
+        echo "Azure Target Registry: ${{ github.event.inputs.azure_target_registry }}"
+        echo "Azure Subscription: ${{ github.event.inputs.azure_subscription }}"
+        echo "Azure Credentials: ${{ github.event.inputs.azure_credentials }}"
 
