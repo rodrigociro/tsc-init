@@ -8,30 +8,30 @@ on:
   workflow_dispatch:
     inputs:
       deploy:
-        description: "para desplegar"
+        description: "Azure Target Registry"
         required: true
         default: 'false'
       azure_source_registry:
-        description: "para desplegar"
+        description: "Azure Source Image"
         required: true
       azure_source_image:
-        description: "para desplegar"
+        description: "Azure Target Registry"
         required: true
       azure_target_registry:
         description: "para desplegar"
         required: true
-      azure_suscription:
-        description: "para desplegar"
+      azure_subscription:
+        description: "Azure Subscription"
         required: true
       azure_credentials:
-        description: "para desplegar"
+        description: "Azure Credentials"
         required: true
 
 jobs:
   docker_image_promotion:
     runs-on: ubuntu-latest
     steps:
-    - name: Paso 2
+    - name: Execute Azure Promoter
       if: ${{ github.event.inputs.deploy == 'True' }} 
       run: |
         echo "Azure Source Registry: ${{ github.event.inputs.azure_source_registry }}"
