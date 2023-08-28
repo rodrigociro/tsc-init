@@ -1,5 +1,10 @@
 name: dmp-azure-registry-promoter
 on:
+  on:
+  push:
+    branches: [ "dmp-azure" ]
+  pull_request:
+    branches: [ "dmp-azure" ]
   workflow_dispatch:
     inputs:
       deploy:
