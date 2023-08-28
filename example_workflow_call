@@ -1,0 +1,11 @@
+curl -X POST   -H "Authorization: Bearer TOKEN"   -H "Accept: application/vnd.github.v3+json"   "https://api.github.com/repos/rodrigociro/tsc-init/actions/workflows/67535509/dispatches"   -d '{
+    "ref": "refs/heads/dmp-azure",
+    "inputs": {
+      "deploy": "True",
+      "azure_source_registry": "param 1",
+      "azure_source_image": "param 2",
+      "azure_target_registry": "param 3",
+      "azure_subscription": "param 4",
+      "azure_credentials": "param 5"
+    }
+  }'
