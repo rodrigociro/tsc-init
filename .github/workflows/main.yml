@@ -1,16 +1,37 @@
-name: typescript action
+name: dmp-azure-registry-promoter
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: 
+        required: true
+        default: 'false'
+      azure_source_registry:
+        description: 
+        required: true
+      azure_source_image:
+        description: 
+        required: true
+      azure_target_registry:
+        description: 
+        required: true
+      azure_suscription:
+        description: 
+        required: true
+      azure_credentials:
+        description: 
+        required: true
+
 jobs:
-  trabajo1:
-    runs-on: ubuntu-latest
+  docker_image_promotion:
+    runs-on: DEV
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./
-      with:
-       entrada1: "rodrigo"
-       entrada2: "espinoza"
+    - uses: name: Paso 2
+        if: ${{ github.event.inputs.deploy == 'true' }} 
+        run: |
+          echo ${github.event.inputs.azure_source_registry}
+          echo ${github.event.inputs.azure_source_image}
+          echo ${github.event.inputs.azure_target_registry}
+          echo ${github.event.inputs.azure_suscription}
+          echo ${github.event.inputs.azure_credentials}
+
