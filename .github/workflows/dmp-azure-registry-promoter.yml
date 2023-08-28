@@ -32,11 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Execute Azure Promoter
-      if: ${{ github.event.inputs.deploy == 'True' }} 
+      if: ${{ github.event.inputs.deploy == 'True' }}
+      env:
+        AZURE_SECRET: ${{ secrets.MI_SECRET_AZURE }}
       run: |
         echo "Azure Source Registry: ${{ github.event.inputs.azure_source_registry }}"
         echo "Azure Source Image: ${{ github.event.inputs.azure_source_image }}"
         echo "Azure Target Registry: ${{ github.event.inputs.azure_target_registry }}"
         echo "Azure Subscription: ${{ github.event.inputs.azure_subscription }}"
-        echo "Azure Credentials: ${{ github.event.inputs.azure_credentials }}"
+        echo "Azure Credentials: ${{ github.event.inputs.azure_credentials }} y mi secreto es ${AZURE_SECRET}"
 
