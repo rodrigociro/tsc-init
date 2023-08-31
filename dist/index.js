@@ -19,7 +19,7 @@ var applicationName = (0, core_1.getInput)("applicationName");
 var applicationVersion = (0, core_1.getInput)("applicationVersion");
 var currentBranch = (0, core_1.getInput)("branch");
 var appCommitId = (0, core_1.getInput)("commitId");
-const dmpAppId = process.env.dmp_id;
+const dmpAppId = process.env.DMP_ID;
 //boolean isBuildSuccessfull add "needs: ['previous-jobs']"
 var json = {
     'applicationName': applicationName,
