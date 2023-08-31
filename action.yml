@@ -3,11 +3,12 @@ author: "Rodrigo"
 description: "leer parametros del action.yaml"
 
 inputs:
-  method:
-    required: false
-  options:
-    required: false  
-
+  method: 
+  applicationName: 
+  applicationVersion: 
+  currentBranch: 
+  appCommitId:
+  
 runs:
   using: node16
   main: 'dist/index.js'
