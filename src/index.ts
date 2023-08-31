@@ -20,7 +20,9 @@ var currentBranch = getInput("branch")
 var appCommitId = getInput("commitId")
 const dmpAppId = process.env.DMP_ID;
 
-
+if(dmpAppId == '123456'){
+    info("correcto!!!")
+}
 //boolean isBuildSuccessfull add "needs: ['previous-jobs']"
 
 var json: {[key: string]: any} = {
