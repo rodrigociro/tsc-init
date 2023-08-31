@@ -1,17 +1,13 @@
 name: typescript action
 on:
-  workflow_call:
+  push:
     inputs:
-      runner:
+      runner: ubuntu-latest
         required: true
         type: string
-      repo: 
+      repo: tsc-init
         required: true
         type: string
-    outputs:
-      jira:
-        description: id jira ticket
-        value: ${{ jobs.register_app_dmp.jira_id }}
 
 jobs:
   register_app_dmp:
@@ -22,10 +18,11 @@ jobs:
     - uses: actions/checkout@v3
     - uses: ./
       id: dmp
+      env:
+        dmpAppId: ${{ secrets.dmp_id }}
       with:
         method: 'POST'
         applicationName: ${{ inputs.repo }}
         applicationVersion: '1.00.00'
-        dmpAppIp: ''
         currentBranch: 'master'
-        appCommitId: ''
+        appCommitId: 'a'

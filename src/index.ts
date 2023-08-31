@@ -13,14 +13,17 @@ var method = getInput("method")
 if(method == ""){
     method = 'GET'
 }
+
 var applicationName = getInput("applicationName")
 var applicationVersion = getInput("applicationVersion")
-var dmpAppId = getInput("dmpAppId")
 var currentBranch = getInput("branch")
 var appCommitId = getInput("commitId")
+const dmpAppId = process.env.dmp_id;
+
+
 //boolean isBuildSuccessfull add "needs: ['previous-jobs']"
 
-var config: {[key: string]: string} = {
+var json: {[key: string]: any} = {
     'applicationName': applicationName,
     'applicationVersion' : applicationVersion,
     'dmpAppId' : dmpAppId,
@@ -28,6 +31,7 @@ var config: {[key: string]: string} = {
     'appCommitId' : appCommitId
 }
 
+info(JSON.stringify(json))
 
 var URL = BASE_URL_KEY?.toString().concat(API_VERSION_KEY)
 
@@ -59,7 +63,7 @@ function getDataFromAction(url:string,method:string,options?:string){
     }else if(method.toUpperCase() == 'POST'){
         var post_url = BASE_URL_KEY.concat(API_VERSION_KEY)
         info(post_url)
-        axios.post(post_url, config)
+        axios.post(post_url, json)
             .then(function (response) {
                 info(JSON.stringify(response.data));
             })
@@ -69,9 +73,8 @@ function getDataFromAction(url:string,method:string,options?:string){
     }else if(method.toUpperCase() =='PUT'){
         var put_url = BASE_URL_KEY.concat(API_VERSION_KEY,"/update/21")
         info(put_url)
-        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
-        info(JSON.stringify(jsonfile))
-        axios.put(put_url, jsonfile)
+        info(JSON.stringify(json))
+        axios.put(put_url, json)
             .then(function (response) {
                 info(JSON.stringify(response.data));
             })
@@ -81,8 +84,6 @@ function getDataFromAction(url:string,method:string,options?:string){
     }else if(method.toUpperCase() == 'DELETE'){
         var delete_url = BASE_URL_KEY.concat(API_VERSION_KEY,"/delete/2")
         info(delete_url)
-        var jsonfile = fs.readFileSync('pruebaCreate.json', 'utf-8');
-        info(JSON.stringify(jsonfile))
         axios.delete(delete_url)
             .then(function (response) {
                 info(JSON.stringify(response.data));
