@@ -4,11 +4,16 @@ description: "leer parametros del action.yaml"
 
 inputs:
   method: 
+    description: 'test'
   applicationName: 
+    description: 'test'
   applicationVersion: 
+    description: 'test'
   currentBranch: 
+    description: 'test'
   appCommitId:
-  
+    description: 'test'
+
 runs:
   using: node16
   main: 'dist/index.js'
