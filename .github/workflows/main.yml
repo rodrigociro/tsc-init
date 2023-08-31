@@ -2,18 +2,16 @@ name: typescript action
 on:
   push:
     inputs:
-      runner: ubuntu-latest
+      runner: 'ubuntu-latest'
         required: true
         type: string
-      repo: tsc-init
+      repo: 'tsc-init'
         required: true
         type: string
 
 jobs:
   register_app_dmp:
     runs-on: ${{ inputs.runner }}
-    outputs:
-      jira_id: ${{ steps.dmp.outputs.jira_id }}
     steps:
     - uses: actions/checkout@v3
     - uses: ./
