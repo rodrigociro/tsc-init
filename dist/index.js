@@ -19,7 +19,7 @@ var applicationName = (0, core_1.getInput)("applicationName");
 var applicationVersion = (0, core_1.getInput)("applicationVersion");
 var currentBranch = (0, core_1.getInput)("branch");
 var appCommitId = (0, core_1.getInput)("commitId");
-const dmpAppId = process.env.DMP_ID;
+const dmpAppId = process.env.dmpAppId;
 if (dmpAppId == '123456') {
     (0, core_1.info)("correcto!!!");
 }

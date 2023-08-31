@@ -14,7 +14,7 @@ jobs:
     - uses: ./
       id: dmp
       env:
-        dmpAppId: ${{ secrets.dmp_id }}
+        dmpAppId: ${{ secrets.DMP_ID }}
       with:
         method: 'GET'
         applicationName: 'tsc-init'

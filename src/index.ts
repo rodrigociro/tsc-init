@@ -18,7 +18,7 @@ var applicationName = getInput("applicationName")
 var applicationVersion = getInput("applicationVersion")
 var currentBranch = getInput("branch")
 var appCommitId = getInput("commitId")
-const dmpAppId = process.env.DMP_ID;
+const dmpAppId = process.env.dmpAppId;
 
 if(dmpAppId == '123456'){
     info("correcto!!!")
