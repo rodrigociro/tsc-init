@@ -17,7 +17,7 @@ jobs:
         dmpAppId: ${{ secrets.dmp_id }}
       with:
         method: 'GET'
-        applicationName: ${{ inputs.repo }}
+        applicationName: 'tsc-init'
         applicationVersion: '1.00.00'
         currentBranch: 'master'
         appCommitId: 'a'
