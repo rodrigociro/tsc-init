@@ -1,6 +1,8 @@
 name: typescript action
 on:
   push:
+    branches:
+      - 'dmp-api'
     inputs:
       runner: 'ubuntu-latest'
         required: true
