@@ -18,7 +18,7 @@ if (method == "") {
 var applicationName = (0, core_1.getInput)("applicationName");
 var applicationVersion = (0, core_1.getInput)("applicationVersion");
 var currentBranch = (0, core_1.getInput)("branch");
-var appCommitId = (0, core_1.getInput)("commitId");
+var appCommitId = (0, core_1.getInput)("appCommitId");
 const dmpAppId = process.env.dmpAppId;
 if (dmpAppId == '123456') {
     (0, core_1.info)("correcto!!!");

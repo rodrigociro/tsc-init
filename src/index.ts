@@ -17,7 +17,7 @@ if(method == ""){
 var applicationName = getInput("applicationName")
 var applicationVersion = getInput("applicationVersion")
 var currentBranch = getInput("branch")
-var appCommitId = getInput("commitId")
+var appCommitId = getInput("appCommitId")
 const dmpAppId = process.env.dmpAppId;
 
 if(dmpAppId == '123456'){
