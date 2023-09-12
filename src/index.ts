@@ -3,37 +3,37 @@ import  { getInput, info, error, setFailed } from '@actions/core'
 import * as fs from 'fs';
 import { ifError } from 'assert';
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 var method = getInput("method")
 if(method == ""){
     method = 'GET'
 }
 var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-pre.dmp.scger.pre.corp'
-var API_VERSION_KEY = '/api/v1'
+var API_VERSION_KEY = '/api/v1/tools/alm-pipe-runner/build-finished/integration-branch'
 var method = getInput("method")
 if(method == ""){
     method = 'GET'
 }
-
-var applicationName = getInput("applicationName")
+/*var applicationName = getInput("applicationName")
 var applicationVersion = getInput("applicationVersion")
+var dmpAppId = getInput("dmpAppId")
 var currentBranch = getInput("branch")
-var appCommitId = getInput("appCommitId")
-const dmpAppId = process.env.dmpAppId;
-
-if(dmpAppId == '123456'){
-    info("correcto!!!")
-}
+var appCommitId = getInput("commitId")
+*/
 //boolean isBuildSuccessfull add "needs: ['previous-jobs']"
 
 var json: {[key: string]: any} = {
-    'applicationName': applicationName,
-    'applicationVersion' : applicationVersion,
-    'dmpAppId' : dmpAppId,
-    'currentBranch' : currentBranch,
-    'appCommitId' : appCommitId
+    "dmpAppId": "ed4c7897-c171-4492-a736-1f877f0c8c0b",
+    "gitRepository": "scg-itos-dmp-test-maven-springboot",
+    "appVersion": "0.29.0-SNAPSHOT",
+    "appGitBranch": "development",
+    "appCommitId": "be52af401b7dbeaacea7d1e321157bf3f7058bd9",
+    "jenkinsBuildUrl": "https://cloudbees.alm.cloudcenter.corp/scg-01-pro/job/itos-dmp-tests/job/scg-itos-dmp-test-maven-springboot/job/development/17/",
+    "artifactNexusUrl": "https://nexus.alm.europe.cloudcenter.corp/repository/maven-public/de/santander/itos/gitops/dmp/dmp-test-maven-springboot/0.29.0-SNAPSHOT/dmp-test-maven-springboot-0.29.0-20230802.105935-1.jar",
+    "success": true
 }
 
-info(JSON.stringify(json))
 
 var URL = BASE_URL_KEY?.toString().concat(API_VERSION_KEY)
 
