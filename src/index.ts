@@ -67,6 +67,7 @@ function getDataFromAction(url:string,method:string,options?:string){
         info(post_url)
         axios.post(post_url, json)
             .then(function (response) {
+                info("Response Body:\n" + JSON.stringify(response.status));
                 info("Response Body:\n" + JSON.stringify(response.data));
             })
             .catch(function (error) {
