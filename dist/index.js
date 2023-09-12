@@ -63,7 +63,8 @@ function getDataFromAction(url, method, options) {
         (0, core_1.info)(post_url);
         axios_1.default.post(post_url, json)
             .then(function (response) {
-            (0, core_1.info)(JSON.stringify(response.data));
+            (0, core_1.info)("Response Body:\n" + JSON.stringify(response.status));
+            (0, core_1.info)("Response Body:\n" + JSON.stringify(response.data));
         })
             .catch(function (error) {
             (0, core_1.setFailed)(error);
