@@ -24,7 +24,7 @@ var appCommitId = getInput("commitId")
 //boolean isBuildSuccessfull add "needs: ['previous-jobs']"
 
 var json: {[key: string]: any} = {
-    "dmpAppId": "ed4c7897-c171-4492-a736-1f877f0c8c0b",
+    "dmpAppId": "17b8451d-e3fd-48b4-a130-6d12f4cd1d5f",
     "gitRepository": "scg-itos-dmp-test-maven-springboot",
     "appVersion": "0.29.0-SNAPSHOT",
     "appGitBranch": "development",
