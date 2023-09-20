@@ -10,7 +10,7 @@ if(method == ""){
     method = 'GET'
 }
 var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-pre.dmp.scger.pre.corp'
-var API_VERSION_KEY = '/api/v1/tools/alm-pipe-runner/build-finished/integration-branch'
+var API_VERSION_KEY = '/api/v1/tools/github-actions-runner/build-finished/integration-branch'
 var method = getInput("method")
 if(method == ""){
     method = 'GET'
@@ -29,7 +29,7 @@ var json: {[key: string]: any} = {
     "appVersion": "0.29.0-SNAPSHOT",
     "appGitBranch": "development",
     "appCommitId": "be52af401b7dbeaacea7d1e321157bf3f7058bd9",
-    "jenkinsBuildUrl": "https://cloudbees.alm.cloudcenter.corp/scg-01-pro/job/itos-dmp-tests/job/scg-itos-dmp-test-maven-springboot/job/development/17/",
+    "gitHubActionsBuildUrl": "https://github.com/santander-group-scg-ng/scg-itos-runner-test/actions",
     "artifactNexusUrl": "https://nexus.alm.europe.cloudcenter.corp/repository/maven-public/de/santander/itos/gitops/dmp/dmp-test-maven-springboot/0.29.0-SNAPSHOT/dmp-test-maven-springboot-0.29.0-20230802.105935-1.jar",
     "success": true
 }
