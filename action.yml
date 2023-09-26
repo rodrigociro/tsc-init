@@ -5,13 +5,23 @@ description: "leer parametros del action.yaml"
 inputs:
   method: 
     description: 'test'
-  applicationName: 
+  runner: 
     description: 'test'
-  applicationVersion: 
+  dmpAppId: 
     description: 'test'
-  currentBranch: 
+  appVersion: 
     description: 'test'
-  appCommitId:
+  gitRepository:
+    description: 'test'
+  commitId:
+    description: 'test'
+  appGitBranch:
+    description: 'test'
+  gitHubActionsBuildUrl:
+    description: 'test'
+  artifactNexusUrl:
+    description: 'test'
+  success:
     description: 'test'
 
 runs:

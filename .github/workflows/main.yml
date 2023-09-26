@@ -12,12 +12,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./
-      id: dmp
-      env:
-        dmpAppId: ${{ secrets.DMP_ID }}
       with:
-        method: 'GET'
-        applicationName: 'tsc-init'
-        applicationVersion: '1.00.00'
-        currentBranch: 'master'
-        appCommitId: 'a'
+        method: 'POST'

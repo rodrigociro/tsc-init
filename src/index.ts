@@ -9,31 +9,46 @@ var method = getInput("method")
 if(method == ""){
     method = 'GET'
 }
-var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-pre.dmp.scger.pre.corp'
-var API_VERSION_KEY = '/api/v1/tools/github-actions-runner/build-finished/integration-branch'
-var method = getInput("method")
-if(method == ""){
-    method = 'GET'
-}
-/*var applicationName = getInput("applicationName")
-var applicationVersion = getInput("applicationVersion")
+
 var dmpAppId = getInput("dmpAppId")
-var currentBranch = getInput("branch")
+var gitRepository = getInput("gitRepository")
+var appVersion = getInput("appVersion")
+var appGitBranch = getInput("appGitBranch")
 var appCommitId = getInput("commitId")
-*/
-//boolean isBuildSuccessfull add "needs: ['previous-jobs']"
+var environment = getInput("real-deployment-environment")
+var gitHubActionsBuildUrl = getInput("gitHubActionsBuildUrl")
+var artifactNexusUrl = getInput("artifactNexusUrl")
+var success = getInput("success")
+
+//set de URL of DMP
+if(environment == "CERT"){
+    var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-dev.dmp.scger.dev.corp'
+    var API_VERSION_KEY = '/api/v1/tools/github-actions-runner/build-finished/integration-branch'
+}
+if(environment == "PRE"){
+    var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-pre.dmp.scger.pre.corp'
+    var API_VERSION_KEY = '/api/v1/tools/github-actions-runner/build-finished/integration-branch'
+}
+if(environment == "PRO"){
+    var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-pro.dmp.scger.corp'
+    var API_VERSION_KEY = '/api/v1/tools/github-actions-runner/build-finished/integration-branch'
+}
+else{
+    var BASE_URL_KEY = 'https://release-manager-scg-itos-dmp-dev.dmp.scger.dev.corp'
+    var API_VERSION_KEY = '/api/v1/tools/github-actions-runner/build-finished/integration-branch'
+}
+
 
 var json: {[key: string]: any} = {
-    "dmpAppId": "17b8451d-e3fd-48b4-a130-6d12f4cd1d5f",
-    "gitRepository": "scg-itos-dmp-test-maven-springboot",
-    "appVersion": "0.29.0-SNAPSHOT",
-    "appGitBranch": "development",
-    "appCommitId": "be52af401b7dbeaacea7d1e321157bf3f7058bd9",
-    "gitHubActionsBuildUrl": "https://github.com/santander-group-scg-ng/scg-itos-runner-test/actions",
-    "artifactNexusUrl": "https://nexus.alm.europe.cloudcenter.corp/repository/maven-public/de/santander/itos/gitops/dmp/dmp-test-maven-springboot/0.29.0-SNAPSHOT/dmp-test-maven-springboot-0.29.0-20230802.105935-1.jar",
-    "success": true
+    "dmpAppId": dmpAppId,
+    "gitRepository": gitRepository,
+    "appVersion": appVersion,
+    "appGitBranch": appGitBranch,
+    "appCommitId": appCommitId,
+    "gitHubActionsBuildUrl": gitHubActionsBuildUrl,
+    "artifactNexusUrl": artifactNexusUrl,
+    "success": success
 }
-
 
 var URL = BASE_URL_KEY?.toString().concat(API_VERSION_KEY)
 
@@ -48,6 +63,7 @@ function evaluateResponseGet(response:AxiosResponse) {
     var config = response.config
     info("DATA: "+JSON.stringify(data)+"\nSTATUS: "+JSON.stringify(status)+"\nSTATUS-TEXT: "+JSON.stringify(statusText)+"\nHEADERS: "+JSON.stringify(headers)+"\nCONFIG: "+JSON.stringify(config))
 }
+
 
 //main function
 function getDataFromAction(url:string,method:string,options?:string){
