@@ -19,6 +19,7 @@ jobs:
         echo "código de control M en DEV"
 
   isRelease:
+    needs: Deployment-DEV
     runs-on: ${{ inputs.runner }}      
     if: "${{ github.event.inputs.level == 'true' }}"
     steps:
