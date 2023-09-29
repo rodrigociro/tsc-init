@@ -4,6 +4,7 @@ on:
     inputs:
       runner:
         required: true
+        type: string
 jobs:
   Deployment-PRE:
     runs-on: ${{ inputs.runner }}
