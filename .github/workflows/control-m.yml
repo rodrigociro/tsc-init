@@ -21,7 +21,7 @@ jobs:
   isRelease:
     needs: Deployment-DEV
     runs-on: ${{ inputs.runner }}      
-    if: "${{ github.event.inputs.isRelease == 'true' }}"
+    if: ${{ inputs.isRelease == 'true' }}
     steps:
     - name: test my input  
       run: |
