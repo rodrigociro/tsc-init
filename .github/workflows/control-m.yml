@@ -17,3 +17,9 @@ jobs:
     - name: codigo de ControlM
       run: |
         echo "código de control M en DEV"
+        
+  isRelease:
+    runs-on: ${{ inputs.runner }}      
+    if: "${{ github.event.inputs.level == 'true' }}"
+    run: |
+      echo "mi input vale ${{ inputs.isRelease }}"
