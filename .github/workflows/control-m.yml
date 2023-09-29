@@ -4,8 +4,10 @@ on:
     inputs:
       runner:
         required: true
+        type: string
       isRelease:
-        required: true  
+        required: true
+        type: string
 jobs:
   Deployment-DEV:
     runs-on: ${{ inputs.runner }}
