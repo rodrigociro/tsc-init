@@ -32,18 +32,22 @@ jobs:
         minor=$(echo $version | cut -d'.' -f2)
         patch=$(echo $version | cut -d'.' -f3)
         message=$(git log -1 --pretty=format:"%s")
+
         if [[ "${message}" == *"chore:"* ]]; then
           new_major=$((major + 1))
           new_version="$new_major.$minor.$patch"
           echo $new_version 
+
         elif [[ "${message}" == *"fix:"* ]]; then
           new_minor=$((minor + 1))
           new_version="$major.$new_minor.$patch"
-          echo $new_version 
-        elif [[ "${message}" == *"feat:"* ]];
+          echo $new_version
+
+        elif [[ "${message}" == *"feat:"* ]]; then
           new_patch=$((patch + 1))
           new_version="$major.$minor.$new_patch"
-          echo $new_version 
+          echo $new_version
+          
         else
-          echo "Please set the commit format "
+          echo "Please set the commit format"
         fi
