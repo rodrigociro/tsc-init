@@ -48,7 +48,7 @@ jobs:
 
           git add .
           git commit -m "skip-ci: update VERSION file"
-          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git master
+          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git main-controlm
           git checkout main-controlm
           git merge development-controlm 
 
@@ -63,7 +63,7 @@ jobs:
 
           git add .
           git commit -m "skip-ci: update VERSION file"
-          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git master
+          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git main-controlm
           git checkout main-controlm
           git merge development-controlm 
 
