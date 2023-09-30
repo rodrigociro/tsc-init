@@ -10,7 +10,7 @@ on:
         type: string
 jobs:
   Deployment-DEV:
-    if: ${{ !contains(github.event.head_commit.message, 'skip-ci') }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip-ci:') }}
     runs-on: ${{ inputs.runner }}
     environment: dev
     steps:
@@ -25,7 +25,7 @@ jobs:
     if: ${{ inputs.isRelease == 'true' }}
     steps:
     - uses: actions/checkout@v3
-    - name: validate commits
+    - name: validate commit message
       run: |
         version_file_path=$(find . -name VERSION)
         version=$(cat $version_file_path)
@@ -44,7 +44,7 @@ jobs:
           echo $new_version > VERSION
 
           git add .
-          git commit -m "skip-ci: new version to deploy"
+          git commit -m "skip-ci: update VERSION file"
           git push
           git checkout main-controlm
           git merge development-controlm 
@@ -59,7 +59,7 @@ jobs:
                     echo $new_version > VERSION
 
           git add .
-          git commit -m "skip-ci: new version to deploy"
+          git commit -m "skip-ci: update VERSION file"
           git push
           git checkout main-controlm
           git merge development-controlm 
@@ -74,7 +74,7 @@ jobs:
           echo $new_version > VERSION
 
           git add .
-          git commit -m "skip-ci: new version to deploy"
+          git commit -m "skip-ci: update VERSION file"
           git push
           git checkout main-controlm
           git merge development-controlm 
