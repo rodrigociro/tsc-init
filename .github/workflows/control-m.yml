@@ -25,7 +25,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: validate change
-      script: shell 
       run: |
         version_file_path=$(find . -name VERSION)
         version=$(cat $version_file_path)
