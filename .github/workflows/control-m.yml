@@ -70,7 +70,8 @@ jobs:
           git branch
           git push 
           git checkout main-controlm
-          git merge development-controlm 
+          git pull --allow-unrelated-histories
+          git merge development-controlm --allow-unrelated-histories
 
         elif [[ "$message" == *"feat:"* ]]; then
 
