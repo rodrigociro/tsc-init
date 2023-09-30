@@ -19,12 +19,15 @@ jobs:
       run: |
         echo "Here we execute the CURLs command to login, create JACD to Control-M DEV"
 
+
   isRelease:
     needs: Deployment-DEV
     runs-on: ${{ inputs.runner }}      
     if: ${{ inputs.isRelease == 'true' }}
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{secrets.PAT_RODRIGO}}
     - name: validate commit message
       run: |
         version_file_path=$(find . -name VERSION)
@@ -65,7 +68,7 @@ jobs:
           git add .
           git commit -m "skip-ci: update VERSION file"
           git branch
-          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git development-controlm
+          git push 
           git checkout main-controlm
           git merge development-controlm 
 
