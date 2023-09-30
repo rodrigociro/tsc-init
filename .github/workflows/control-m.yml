@@ -10,13 +10,14 @@ on:
         type: string
 jobs:
   Deployment-DEV:
+    if: ${{ !contains(github.event.head_commit.message, 'skip-ci') }}
     runs-on: ${{ inputs.runner }}
     environment: dev
     steps:
     - uses: actions/checkout@v3
     - name: codigo de ControlM
       run: |
-        echo "código de control M en DEV"
+        echo "Here we execute the CURLs command to login, create JACD to Control-M DEV"
 
   isRelease:
     needs: Deployment-DEV
@@ -39,6 +40,14 @@ jobs:
           new_version="$new_major.$minor.$patch"
           echo "current version: $version" 
           echo "new version: $new_version" 
+          
+          echo $new_version > VERSION
+
+          git add .
+          git commit -m "skip-ci: new version to deploy"
+          git push
+          git checkout main-controlm
+          git merge development-controlm 
 
         elif [[ "$message" == *"fix:"* ]]; then
 
@@ -47,6 +56,14 @@ jobs:
           echo "current version: $version" 
           echo "new version: $new_version" 
 
+                    echo $new_version > VERSION
+
+          git add .
+          git commit -m "skip-ci: new version to deploy"
+          git push
+          git checkout main-controlm
+          git merge development-controlm 
+
         elif [[ "$message" == *"feat:"* ]]; then
 
           new_patch=$((patch + 1))
@@ -54,8 +71,18 @@ jobs:
           echo "current version: $version" 
           echo "new version: $new_version" 
 
+          echo $new_version > VERSION
+
+          git add .
+          git commit -m "skip-ci: new version to deploy"
+          git push
+          git checkout main-controlm
+          git merge development-controlm 
+
         else
 
           echo "Please set the correct format commit"
         
         fi
+
+

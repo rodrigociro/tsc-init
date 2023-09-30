@@ -13,4 +13,4 @@ jobs:
     - uses: actions/checkout@v3
     - name: codigo de ControlM
       run: |
-        echo "código de control M"
+        echo "Here we execute the CURLs command to login,patch the JSON and create JACD to Control-M PRE"
