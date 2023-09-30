@@ -32,8 +32,7 @@ jobs:
         minor=$(echo $version | cut -d'.' -f2)
         patch=$(echo $version | cut -d'.' -f3)
         message=$(git log -1 --pretty=format:"%s")
-
-        elif [[ "${message}" == *"chore:"* ]]; then
+        if [[ "${message}" == *"chore:"* ]]; then
           new_major=$((major + 1))
           new_version="$new_major.$minor.$patch"
           echo $new_version 
