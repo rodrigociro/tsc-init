@@ -34,6 +34,9 @@ jobs:
         patch=$(echo $version | cut -d'.' -f3)
         message=$(git log -1 --pretty=format:"%s")
 
+        git config --global user.email "rodrigociro@hotmail.es"
+        git config --global user.name "Rodrigo Espinoza"
+
         if [[ "$message" == *"chore:"* ]]; then
 
           new_major=$((major + 1))
