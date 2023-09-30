@@ -48,7 +48,7 @@ jobs:
 
           git add .
           git commit -m "skip-ci: update VERSION file"
-          git push
+          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git master
           git checkout main-controlm
           git merge development-controlm 
 
@@ -59,11 +59,11 @@ jobs:
           echo "current version: $version" 
           echo "new version: $new_version" 
 
-                    echo $new_version > VERSION
+          echo $new_version > VERSION
 
           git add .
           git commit -m "skip-ci: update VERSION file"
-          git push
+          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git master
           git checkout main-controlm
           git merge development-controlm 
 
