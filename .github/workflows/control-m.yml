@@ -37,19 +37,22 @@ jobs:
 
           new_major=$((major + 1))
           new_version="$new_major.$minor.$patch"
-          echo $new_version 
+          echo "current version: $version" 
+          echo "new version: $new_version" 
 
         elif [[ "$message" == *"fix:"* ]]; then
 
           new_minor=$((minor + 1))
           new_version="$major.$new_minor.$patch"
-          echo $new_version
+          echo "current version: $version" 
+          echo "new version: $new_version" 
 
         elif [[ "$message" == *"feat:"* ]]; then
 
           new_patch=$((patch + 1))
           new_version="$major.$minor.$new_patch"
-          echo $new_version
+          echo "current version: $version" 
+          echo "new version: $new_version" 
 
         else
 
