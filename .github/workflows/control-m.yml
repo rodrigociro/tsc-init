@@ -28,7 +28,7 @@ jobs:
       with:
         token: ${{ secrets.PAT_RODRIGO }}
 
-    - uses: ./common_actions/versionFileCi@workflows
+    - uses: .actions/actionVersion@workflows
       with: 
         token: ${{ secrets.PAT_RODRIGO }}
 
