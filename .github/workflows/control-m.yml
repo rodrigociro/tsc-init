@@ -75,7 +75,7 @@ jobs:
           git branch
           git status
           git pull --allow-unrelated-histories
-          git merge --no-ff development-controlm
+          git merge --no-ff development-controlm --allow-unrelated-histories
 
         elif [[ "$message" == *"feat:"* ]]; then
 
