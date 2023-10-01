@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        token: ${{ secrets.PAT_RODRIGO }}
+        token: ${{ secrets.PAT_WORKFLOWS }}
     - name: codigo de ControlM
       run: |
         echo "Here we execute the CURLs command to login,patch the JSON and create JACD to Control-M PRE"
@@ -24,7 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        token: ${{ secrets.PAT_RODRIGO }}
+        token: ${{ secrets.PAT_WORKFLOWS }}
     - name: codigo de ControlM
       run: |
         echo "Here we execute the CURLs command to login,patch the JSON and create JACD to Control-M PRO"
