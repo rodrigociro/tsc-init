@@ -28,8 +28,8 @@ jobs:
       with:
         token: ${{ secrets.PAT_RODRIGO }}
 
-    - uses: rodrigociro/common_actions/versionFileCi@workflows
-    
+    - uses: ./common_actions/versionFileCi@workflows
+
     - name: merge into master
       uses: mtanzi/action-automerge@v1
       id: merge
