@@ -9,6 +9,7 @@ runs:
   using: "shell"
   steps:
     - name: validate commit message
+      shell: bash
       run: |
         version_file_path=$(find . -name VERSION)
         version=$(cat $version_file_path)
