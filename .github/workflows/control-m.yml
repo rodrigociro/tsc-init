@@ -28,7 +28,7 @@ jobs:
       with:
         token: ${{ secrets.PAT_RODRIGO }}
 
-    - uses: ./actions/actionVersion@workflows
+    - uses: rodrigociro/tsc-init/actions/actionVersion@workflows
       with: 
         token: ${{ secrets.PAT_RODRIGO }}
 
