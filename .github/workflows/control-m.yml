@@ -70,6 +70,7 @@ jobs:
           git push 
           git pull
           git checkout main-controlm
+          git branch
           git pull --allow-unrelated-histories
           git merge origin/development-controlm --allow-unrelated-histories
 
