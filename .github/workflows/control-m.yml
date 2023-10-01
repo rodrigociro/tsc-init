@@ -64,6 +64,7 @@ jobs:
 
           sed -i "s/$version/$new_version/" VERSION
           
+          git pull
           git add .
           git commit -m "skip-ci: update VERSION file"
           git branch
