@@ -91,9 +91,9 @@ jobs:
         
         fi
     - name: merge into master
-        uses: mtanzi/action-automerge@v1
-        id: merge
-        with:
-          github_token: ${{ secrets.PAT_RODRIGO }}
-          source: 'development-controlm'
-          target: 'main-controlm'
+      uses: mtanzi/action-automerge@v1
+      id: merge
+      with:
+        github_token: ${{ secrets.PAT_RODRIGO }}
+        source: 'development-controlm'
+        target: 'main-controlm'
