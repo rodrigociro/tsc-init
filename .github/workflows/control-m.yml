@@ -62,16 +62,16 @@ jobs:
           echo "current version: $version" 
           echo "new version: $new_version" 
 
-          echo $new_version > VERSION
+          sed -i "s/$version/$new_version/" VERSION
           
-          git pull
           git add .
           git commit -m "skip-ci: update VERSION file"
           git branch
           git push 
+          git pull
           git checkout main-controlm
           git pull --allow-unrelated-histories
-          git merge development-controlm --allow-unrelated-histories
+          git merge origin/development-controlm --allow-unrelated-histories
 
         elif [[ "$message" == *"feat:"* ]]; then
 
@@ -80,7 +80,7 @@ jobs:
           echo "current version: $version" 
           echo "new version: $new_version" 
 
-          echo $new_version > VERSION
+          sed -i "s/1.0.0/1.0.1/" VERSION
 
           git add .
           git commit -m "skip-ci: update VERSION file"
