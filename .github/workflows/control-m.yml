@@ -97,6 +97,7 @@ jobs:
     - name: validate commit message
       run: |
         git pull
+        git branch
         git merge development-controlm
         git push
 
