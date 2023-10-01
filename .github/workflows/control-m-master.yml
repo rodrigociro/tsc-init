@@ -18,6 +18,7 @@ jobs:
         echo "Here we execute the CURLs command to login,patch the JSON and create JACD to Control-M PRE"
 
   CONTROLM-PRO:
+    needs: CONTROLM-PRE
     runs-on: ${{ inputs.runner }}
     environment: pro
     steps:
