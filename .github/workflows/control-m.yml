@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        token: ${{secrets.PAT_RODRIGO}}
+        token: ${{ secrets.PAT_RODRIGO }}
     - name: validate commit message
       run: |
         version_file_path=$(find . -name VERSION)
@@ -90,14 +90,10 @@ jobs:
           echo "Please set the correct format commit"
         
         fi
-    - uses: actions/checkout@v4
-      with:
-        token: ${{secrets.PAT_RODRIGO}}
-        path: main-controlm
-    - name: validate commit message
-      run: |
-        git pull
-        git branch
-        git merge development-controlm
-        git push
-
+    - name: merge into master
+        uses: mtanzi/action-automerge@v1
+        id: merge
+        with:
+          github_token: ${{ secrets.PAT_RODRIGO }}
+          source: 'development-controlm'
+          target: 'main-controlm'
