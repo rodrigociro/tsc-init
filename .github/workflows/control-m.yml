@@ -29,6 +29,8 @@ jobs:
         token: ${{ secrets.PAT_RODRIGO }}
 
     - uses: ./common_actions/versionFileCi@workflows
+      with: 
+        token: ${{ secrets.PAT_RODRIGO }}
 
     - name: merge into master
       uses: mtanzi/action-automerge@v1

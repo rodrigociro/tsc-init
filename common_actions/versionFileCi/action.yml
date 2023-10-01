@@ -1,6 +1,10 @@
 name: update version file
 description: validate the semmantic version of the repository
 
+inputs:
+  token:
+    required: true
+
 runs:
   using: "shell"
   steps:
