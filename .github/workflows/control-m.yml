@@ -25,7 +25,7 @@ jobs:
     runs-on: ${{ inputs.runner }}      
     if: ${{ inputs.isRelease == 'true' }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{secrets.PAT_RODRIGO}}
     - name: validate commit message
@@ -69,13 +69,6 @@ jobs:
           git commit -m "skip-ci: update VERSION file"
           git branch
           git push 
-          git pull
-          git status
-          git checkout main-controlm
-          git branch
-          git status
-          git pull --allow-unrelated-histories
-          git merge --no-ff development-controlm --allow-unrelated-histories
 
         elif [[ "$message" == *"feat:"* ]]; then
 
@@ -97,5 +90,13 @@ jobs:
           echo "Please set the correct format commit"
         
         fi
-
+    - uses: actions/checkout@v4
+      with:
+        token: ${{secrets.PAT_RODRIGO}}
+        path: main-controlm
+    - name: validate commit message
+      run: |
+        git pull
+        git merge development-controlm
+        git push
 
