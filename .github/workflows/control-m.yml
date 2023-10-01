@@ -9,7 +9,7 @@ on:
         required: true
         type: string
 jobs:
-  Deployment-DEV:
+  CONTROLM-DEV:
     if: ${{ !contains(github.event.head_commit.message, 'skip-ci:') }}
     runs-on: ${{ inputs.runner }}
     environment: dev
@@ -20,7 +20,7 @@ jobs:
         echo "Here we execute the CURLs command to login, create JACD to Control-M DEV"
 
   isRelease:
-    needs: Deployment-DEV
+    needs: CONTROLM-DEV
     runs-on: ${{ inputs.runner }}      
     if: ${{ inputs.isRelease == 'true' }}
     steps:

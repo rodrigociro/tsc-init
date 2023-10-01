@@ -6,11 +6,24 @@ on:
         required: true
         type: string
 jobs:
-  Deployment-PRE:
+  CONTROLM-PRE:
     runs-on: ${{ inputs.runner }}
     environment: pre
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.PAT_RODRIGO }}
     - name: codigo de ControlM
       run: |
         echo "Here we execute the CURLs command to login,patch the JSON and create JACD to Control-M PRE"
+
+  CONTROLM-PRO:
+    runs-on: ${{ inputs.runner }}
+    environment: pro
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.PAT_RODRIGO }}
+    - name: codigo de ControlM
+      run: |
+        echo "Here we execute the CURLs command to login,patch the JSON and create JACD to Control-M PRO"
