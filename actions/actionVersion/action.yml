@@ -6,7 +6,6 @@ inputs:
     required: true
 
 runs:
-  using: "shell"
   steps:
     - name: validate commit message
       shell: bash
