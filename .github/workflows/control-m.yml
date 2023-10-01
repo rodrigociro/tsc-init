@@ -19,7 +19,6 @@ jobs:
       run: |
         echo "Here we execute the CURLs command to login, create JACD to Control-M DEV"
 
-
   isRelease:
     needs: Deployment-DEV
     runs-on: ${{ inputs.runner }}      
@@ -28,68 +27,9 @@ jobs:
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.PAT_RODRIGO }}
-    - name: validate commit message
-      run: |
-        version_file_path=$(find . -name VERSION)
-        version=$(cat $version_file_path)
-        major=$(echo $version | cut -d'.' -f1)
-        minor=$(echo $version | cut -d'.' -f2)
-        patch=$(echo $version | cut -d'.' -f3)
-        message=$(git log -1 --pretty=format:"%s")
 
-        git config user.email "rodrigociro@hotmail.es"
-        git config user.name "Rodrigo Espinoza"
-
-        if [[ "$message" == *"chore:"* ]]; then
-
-          new_major=$((major + 1))
-          new_version="$new_major.$minor.$patch"
-          echo "current version: $version" 
-          echo "new version: $new_version" 
-          
-          echo $new_version > VERSION
-          
-          git add .
-          git commit -m "skip-ci: update VERSION file"
-          git push https://rodrigociro:${{ secrets.PAT_RODRIGO }}@github.com/rodrigociro/action-tester.git development-controlm
-          git checkout main-controlm
-          git merge development-controlm 
-
-        elif [[ "$message" == *"fix:"* ]]; then
-
-          new_minor=$((minor + 1))
-          new_version="$major.$new_minor.$patch"
-          echo "current version: $version" 
-          echo "new version: $new_version" 
-
-          sed -i "s/$version/$new_version/" VERSION
-          
-          git pull
-          git add .
-          git commit -m "skip-ci: update VERSION file"
-          git branch
-          git push 
-
-        elif [[ "$message" == *"feat:"* ]]; then
-
-          new_patch=$((patch + 1))
-          new_version="$major.$minor.$new_patch"
-          echo "current version: $version" 
-          echo "new version: $new_version" 
-
-          sed -i "s/1.0.0/1.0.1/" VERSION
-
-          git add .
-          git commit -m "skip-ci: update VERSION file"
-          git push
-          git checkout main-controlm
-          git merge development-controlm 
-
-        else
-
-          echo "Please set the correct format commit"
-        
-        fi
+    - uses: rodrigociro/common_actions/versionFileCi@workflows
+    
     - name: merge into master
       uses: mtanzi/action-automerge@v1
       id: merge

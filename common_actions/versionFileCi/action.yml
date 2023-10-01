@@ -1,0 +1,70 @@
+name: update version file
+description: validate the semmantic version of the repository
+
+runs:
+  using: "shell"
+  steps:
+    - name: validate commit message
+      run: |
+        version_file_path=$(find . -name VERSION)
+        version=$(cat $version_file_path)
+        major=$(echo $version | cut -d'.' -f1)
+        minor=$(echo $version | cut -d'.' -f2)
+        patch=$(echo $version | cut -d'.' -f3)
+        message=$(git log -1 --pretty=format:"%s")
+
+        git config user.email "rodrigociro@hotmail.es"
+        git config user.name "Rodrigo Espinoza"
+
+        if [[ "$message" == *"chore:"* ]]; then
+
+          new_major=$((major + 1))
+          new_version="$new_major.$minor.$patch"
+          echo "current version: $version" 
+          echo "new version: $new_version" 
+          
+          sed -i "s/$version/$new_version/" VERSION
+          
+          git pull
+          git add .
+          git commit -m "skip-ci: update VERSION file"
+          git branch
+          git push 
+
+        elif [[ "$message" == *"fix:"* ]]; then
+
+          new_minor=$((minor + 1))
+          new_version="$major.$new_minor.$patch"
+          echo "current version: $version" 
+          echo "new version: $new_version" 
+
+          sed -i "s/$version/$new_version/" VERSION
+          
+          git pull
+          git add .
+          git commit -m "skip-ci: update VERSION file"
+          git branch
+          git push 
+
+        elif [[ "$message" == *"feat:"* ]]; then
+
+          new_patch=$((patch + 1))
+          new_version="$major.$minor.$new_patch"
+          echo "current version: $version" 
+          echo "new version: $new_version" 
+
+          sed -i "s/$version/$new_version/" VERSION
+          
+          git pull
+          git add .
+          git commit -m "skip-ci: update VERSION file"
+          git branch
+          git push 
+
+        else
+
+          echo "Please set the correct format commit"
+        
+        fi
+
+      
