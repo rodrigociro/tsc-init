@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      deploy:
+        required: true
+        type: string
 jobs:
 
   approve-workflow:
