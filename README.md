@@ -1,4 +1,4 @@
-# HOW APPROVE PRO DEPLOYMENT WITH PAT.
+# CONTINOUNS INTEGRATION: development --> development (is release) --> master
 
 ### REPOSITORY WITH CI FILES: https://github.com/rodrigociro/action-tester
   - Integrtaion-branch: development-controlm
