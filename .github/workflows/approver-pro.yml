@@ -1,6 +1,8 @@
 ...
 name: approver-pro
 on:
+  push:
+    branches: [ "workflows" ]
   workflow_dispatch:
     inputs:
       deploy:
