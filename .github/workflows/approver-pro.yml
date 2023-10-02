@@ -2,10 +2,6 @@
 name: Controlm-Master branch
 on:
   workflow_dispatch:
-    inputs:
-      PAT_RODRIGO:
-        required: true
-        type: script
 jobs:
 
   approve-workflow:
