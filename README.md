@@ -24,15 +24,25 @@ Format: `<type>(<scope>): <subject>`
 +--------> "CHORE: <commit message>" <--- Update the major version
 ```
 
+
 ![test_of_commits](https://github.com/rodrigociro/tsc-init/assets/23638418/8f68da41-d358-433c-b01b-fcc0c26bbe8d)
+
+
 
 ![patch_version](https://github.com/rodrigociro/tsc-init/assets/23638418/402e0085-74f1-44aa-a046-ef70d210763c)
 
+
+
 ![chore_version](https://github.com/rodrigociro/tsc-init/assets/23638418/e04f4c03-21ce-4e38-a965-3ef9179a7642)
+
+
 
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/c143c13e-5e58-4932-9710-c3a6ed6b496c)
 
+
+
 ![fix_version](https://github.com/rodrigociro/tsc-init/assets/23638418/789ca14a-470a-43db-a4f6-bb883b22baaa)
+
 
 
 
