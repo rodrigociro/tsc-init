@@ -1,8 +1,8 @@
 # HOW APPROVE PRO DEPLOYMENT WITH PAT.
 
 REPOSITORY WITH CI FILES: https://github.com/rodrigociro/action-tester
-  Integrtaion-branch: development-controlm,
-  Release-branch: main-controlm
+  - Integrtaion-branch: development-controlm
+  - Release-branch: main-controlm
   
 REPOSITORY WITH WORKFLOWS & ACTIONS: https://github.com/rodrigociro/tsc-init/tree/workflows
 
@@ -110,6 +110,8 @@ https://github.com/rodrigociro/action-tester/actions/runs/6377202895
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/57f320f9-303a-4959-a272-88847cad0921)
 
 
+
+CURL COMMAND TO DMP
 
 ```
 curl -L \
