@@ -95,6 +95,21 @@ https://github.com/rodrigociro/action-tester/actions/runs/6355943118
 
 
 # how to approve them through external parties
+
+
+## CURL COMMAND TO APPROVE PRO DEPLOYMENT BY DMP
+
+```
+curl -L \
+-X POST \
+-H "Accept: application/vnd.github+json" \
+-H "Authorization: Bearer $PAT_TECH_USER" \
+-H "X-GitHub-Api-Version: 2022-11-28" \
+https://api.github.com/repos/OWNER/REPOSITORY_NAME/actions/runs/RUNS_ID/pending_deployments \
+-d '{"environment_ids":[1382602765],"state":"approved","comment":"approve by dmp-bot!"}'
+```
+
+
 https://github.com/rodrigociro/action-tester/actions/runs/6377202895
 
 
@@ -111,17 +126,7 @@ https://github.com/rodrigociro/action-tester/actions/runs/6377202895
 
 
 
-## CURL COMMAND TO DMP
 
-```
-curl -L \
--X POST \
--H "Accept: application/vnd.github+json" \
--H "Authorization: Bearer $PAT_TECH_USER" \
--H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/OWNER/REPOSITORY_NAME/actions/runs/RUNS_ID/pending_deployments \
--d '{"environment_ids":[1382602765],"state":"approved","comment":"approve by dmp-bot!"}'
-```
 
 
 
