@@ -94,10 +94,9 @@ https://github.com/rodrigociro/action-tester/actions/runs/6355943118
 
 
 
-# how to approve them through external parties
+# HOW TO APPROVE TROUGH EXTERNAL PARTIES
 
-
-## CURL COMMAND TO APPROVE PRO DEPLOYMENT BY DMP
+## curl command to approve pro-deployment by DMP
 
 ```
 curl -L \
