@@ -1,15 +1,12 @@
 ...
 name: Controlm-Master branch
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
     inputs:
       deploy:
+        default: ""
+        description: test
         required: true
-        type: string
 jobs:
 
   approve-workflow:
