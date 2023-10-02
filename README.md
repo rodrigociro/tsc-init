@@ -111,7 +111,7 @@ https://github.com/rodrigociro/action-tester/actions/runs/6377202895
 
 
 
-CURL COMMAND TO DMP
+## CURL COMMAND TO DMP
 
 ```
 curl -L \
