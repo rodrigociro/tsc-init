@@ -4,10 +4,10 @@ on:
       tags:
         description: 'Test scenario tags'
         required: false
-        type: boolean
+        type: string
       environment:
         description: 'Environment to run tests against'
-        type: environment
+        type: string
         required: true
 
 jobs:
