@@ -65,6 +65,7 @@ runs:
         else
 
           echo "Please set the correct format commit"
+          exit 2
         
         fi
 
