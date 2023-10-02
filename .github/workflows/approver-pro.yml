@@ -1,5 +1,5 @@
 ...
-name: Controlm-Master branch
+name: approver-pro
 on:
   workflow_dispatch:
     inputs:
