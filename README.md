@@ -1,6 +1,9 @@
 # HOW APPROVE PRO DEPLOYMENT WITH PAT.
 
 REPOSITORY WITH CI FILES: https://github.com/rodrigociro/action-tester
+  Integrtaion-branch: development-controlm,
+  Release-branch: main-controlm
+  
 REPOSITORY WITH WORKFLOWS & ACTIONS: https://github.com/rodrigociro/tsc-init/tree/workflows
 
 This project is to represent the CI of a "control-m" where it is provided:
@@ -73,6 +76,8 @@ In our CI development file we can change the "is release" parameter to true or f
 - true: the deployment job will be executed in DEV, the VERSION file validation and the commit to master will be executed. Additionally, a commit will be made in the development branch with the statement "skip-ci:" to avoid unnecessary relaunches
 
 ## false 
+https://github.com/rodrigociro/action-tester/actions/runs/6356476472
+
 
 
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/a16907f7-17b4-4be3-8723-32c70890e6b6)
@@ -80,11 +85,41 @@ In our CI development file we can change the "is release" parameter to true or f
 
 
 ## true
+https://github.com/rodrigociro/action-tester/actions/runs/6355943118
+
 
 
 ![image](https://github.com/rodrigociro/tsc-init/assets/23638418/5b9af264-f1b3-455b-842c-763e8a02d033)
 
 
+
+
+# how to approve them through external parties
+https://github.com/rodrigociro/action-tester/actions/runs/6377202895
+
+
+
+![image](https://github.com/rodrigociro/tsc-init/assets/23638418/aa8b5c9c-d7d5-47bb-9445-6723a7010312)
+
+
+
+![image](https://github.com/rodrigociro/tsc-init/assets/23638418/f251cb78-5be3-445d-aa84-d74599c74190)
+
+
+
+![image](https://github.com/rodrigociro/tsc-init/assets/23638418/57f320f9-303a-4959-a272-88847cad0921)
+
+
+
+```
+curl -L \
+-X POST \
+-H "Accept: application/vnd.github+json" \
+-H "Authorization: Bearer $PAT_TECH_USER" \
+-H "X-GitHub-Api-Version: 2022-11-28" \
+https://api.github.com/repos/OWNER/REPOSITORY_NAME/actions/runs/RUNS_ID/pending_deployments \
+-d '{"environment_ids":[1382602765],"state":"approved","comment":"approve by dmp-bot!"}'
+```
 
 
 
