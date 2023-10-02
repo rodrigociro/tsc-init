@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        token: ${{ inputs.PAT_RODRIGO }}
+        token: ${{ secrets.PAT_RODRIGO }}
     - name: Get environment id
       uses: actions/github-script@v6
       id: environment-id
@@ -32,9 +32,9 @@ jobs:
     - name: Approve workflow
       uses: actions/github-script@v6
       env:
-        GH_TOKEN: ${{ inputs.PAT_RODRIGO }}
+        GH_TOKEN: ${{ secrets.PAT_RODRIGO }}
       with:
-        github-token: ${{ inputs.PAT_RODRIGO }}
+        github-token: ${{ secrets.PAT_RODRIGO }}
         script: |
           await github.rest.actions.reviewPendingDeploymentsForRun({
             owner: context.repo.owner,
@@ -42,5 +42,5 @@ jobs:
             run_id: context.runId,
             environment_ids: [${{ steps.environment-id.outputs.result }}],
             state: 'approved',
-            comment: 'Ship it!',
+            comment: 'approve by dmp-bot!',
           });
